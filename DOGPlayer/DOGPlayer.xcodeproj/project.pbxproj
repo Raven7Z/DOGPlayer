@@ -1,0 +1,757 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		25014CED202447970005DBA1 /* libDOGReveal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 25014CEC2024474F0005DBA1 /* libDOGReveal.a */; };
+		252E9A0420185A6500185692 /* DOGPlayerSliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 252E9A0320185A6500185692 /* DOGPlayerSliderView.m */; };
+		252E9A0820187F2200185692 /* DOGTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 252E9A0720187F2200185692 /* DOGTool.m */; };
+		256BD83B201AC82900D98681 /* DOGPlayerControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 256BD83A201AC82900D98681 /* DOGPlayerControlView.m */; };
+		256BD83E201ACD9100D98681 /* DOGPlayerWidget.m in Sources */ = {isa = PBXBuildFile; fileRef = 256BD83D201ACD9100D98681 /* DOGPlayerWidget.m */; };
+		256BD842201AD3DF00D98681 /* DOGPlayerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 256BD841201AD3DF00D98681 /* DOGPlayerItem.m */; };
+		257CBA9420160D7000AA75A5 /* DOGPlayerDunkerProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 257CBA9320160D7000AA75A5 /* DOGPlayerDunkerProgressView.m */; };
+		3D26D9052013433B003CF82B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D26D9042013433B003CF82B /* AppDelegate.m */; };
+		3D26D9082013433B003CF82B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D26D9072013433B003CF82B /* ViewController.m */; };
+		3D26D90B2013433B003CF82B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D26D9092013433B003CF82B /* Main.storyboard */; };
+		3D26D90D2013433B003CF82B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D26D90C2013433B003CF82B /* Assets.xcassets */; };
+		3D26D9102013433B003CF82B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D26D90E2013433B003CF82B /* LaunchScreen.storyboard */; };
+		3D26D9132013433B003CF82B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D26D9122013433B003CF82B /* main.m */; };
+		3D26D91D2013433B003CF82B /* DOGPlayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D26D91C2013433B003CF82B /* DOGPlayerTests.m */; };
+		3D26D9282013433B003CF82B /* DOGPlayerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D26D9272013433B003CF82B /* DOGPlayerUITests.m */; };
+		9B92441C2015D4DA009F6F65 /* DOGPlayerDunkerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B92441B2015D4DA009F6F65 /* DOGPlayerDunkerView.m */; };
+		A50DF43820255E2C0049A0C0 /* UIControl+DOG.m in Sources */ = {isa = PBXBuildFile; fileRef = A50DF43720255E2C0049A0C0 /* UIControl+DOG.m */; };
+		A5B2966320145C11008C5633 /* DOGPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A5B2966220145C11008C5633 /* DOGPlayer.m */; };
+		A5B2966720145FBB008C5633 /* DOGPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A5B2966620145FBB008C5633 /* DOGPlayerView.m */; };
+		A5B2966C201462E5008C5633 /* UIColor+DOG.m in Sources */ = {isa = PBXBuildFile; fileRef = A5B2966B201462E5008C5633 /* UIColor+DOG.m */; };
+		A5B2966F201464AE008C5633 /* UIView+DOG.m in Sources */ = {isa = PBXBuildFile; fileRef = A5B2966E201464AE008C5633 /* UIView+DOG.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		25014CEB2024474F0005DBA1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 25014CE72024474E0005DBA1 /* DOGReveal.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25014CDB2024474E0005DBA1;
+			remoteInfo = DOGReveal;
+		};
+		3D26D9192013433B003CF82B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3D26D8F82013433B003CF82B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3D26D8FF2013433B003CF82B;
+			remoteInfo = DOGPlayer;
+		};
+		3D26D9242013433B003CF82B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3D26D8F82013433B003CF82B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3D26D8FF2013433B003CF82B;
+			remoteInfo = DOGPlayer;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		25014CE72024474E0005DBA1 /* DOGReveal.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DOGReveal.xcodeproj; path = DOGReveal/DOGReveal.xcodeproj; sourceTree = "<group>"; };
+		252E9A0220185A6500185692 /* DOGPlayerSliderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DOGPlayerSliderView.h; sourceTree = "<group>"; };
+		252E9A0320185A6500185692 /* DOGPlayerSliderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DOGPlayerSliderView.m; sourceTree = "<group>"; };
+		252E9A0620187F2200185692 /* DOGTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DOGTool.h; sourceTree = "<group>"; };
+		252E9A0720187F2200185692 /* DOGTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DOGTool.m; sourceTree = "<group>"; };
+		256BD839201AC82900D98681 /* DOGPlayerControlView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DOGPlayerControlView.h; sourceTree = "<group>"; };
+		256BD83A201AC82900D98681 /* DOGPlayerControlView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DOGPlayerControlView.m; sourceTree = "<group>"; };
+		256BD83C201ACD9100D98681 /* DOGPlayerWidget.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DOGPlayerWidget.h; sourceTree = "<group>"; };
+		256BD83D201ACD9100D98681 /* DOGPlayerWidget.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DOGPlayerWidget.m; sourceTree = "<group>"; };
+		256BD840201AD3DF00D98681 /* DOGPlayerItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DOGPlayerItem.h; sourceTree = "<group>"; };
+		256BD841201AD3DF00D98681 /* DOGPlayerItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DOGPlayerItem.m; sourceTree = "<group>"; };
+		257CBA9220160D7000AA75A5 /* DOGPlayerDunkerProgressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DOGPlayerDunkerProgressView.h; sourceTree = "<group>"; };
+		257CBA9320160D7000AA75A5 /* DOGPlayerDunkerProgressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DOGPlayerDunkerProgressView.m; sourceTree = "<group>"; };
+		3D26D9002013433B003CF82B /* DOGPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DOGPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D26D9032013433B003CF82B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		3D26D9042013433B003CF82B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		3D26D9062013433B003CF82B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		3D26D9072013433B003CF82B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		3D26D90A2013433B003CF82B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3D26D90C2013433B003CF82B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3D26D90F2013433B003CF82B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3D26D9112013433B003CF82B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D26D9122013433B003CF82B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3D26D9182013433B003CF82B /* DOGPlayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DOGPlayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D26D91C2013433B003CF82B /* DOGPlayerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DOGPlayerTests.m; sourceTree = "<group>"; };
+		3D26D91E2013433B003CF82B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D26D9232013433B003CF82B /* DOGPlayerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DOGPlayerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D26D9272013433B003CF82B /* DOGPlayerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DOGPlayerUITests.m; sourceTree = "<group>"; };
+		3D26D9292013433B003CF82B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D26D939201348B5003CF82B /* DOGPlayerViewProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DOGPlayerViewProtocol.h; sourceTree = "<group>"; };
+		3D26D93A201348C6003CF82B /* DOGPlayerControlViewProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DOGPlayerControlViewProtocol.h; sourceTree = "<group>"; };
+		9B92441A2015D4DA009F6F65 /* DOGPlayerDunkerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DOGPlayerDunkerView.h; sourceTree = "<group>"; };
+		9B92441B2015D4DA009F6F65 /* DOGPlayerDunkerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DOGPlayerDunkerView.m; sourceTree = "<group>"; };
+		A50DF43620255E2C0049A0C0 /* UIControl+DOG.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIControl+DOG.h"; sourceTree = "<group>"; };
+		A50DF43720255E2C0049A0C0 /* UIControl+DOG.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIControl+DOG.m"; sourceTree = "<group>"; };
+		A5B2966020145BF2008C5633 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		A5B2966120145C11008C5633 /* DOGPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DOGPlayer.h; sourceTree = "<group>"; };
+		A5B2966220145C11008C5633 /* DOGPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DOGPlayer.m; sourceTree = "<group>"; };
+		A5B2966420145D04008C5633 /* DOGPlayerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DOGPlayerProtocol.h; sourceTree = "<group>"; };
+		A5B2966520145FBB008C5633 /* DOGPlayerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DOGPlayerView.h; sourceTree = "<group>"; };
+		A5B2966620145FBB008C5633 /* DOGPlayerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DOGPlayerView.m; sourceTree = "<group>"; };
+		A5B2966A201462E5008C5633 /* UIColor+DOG.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+DOG.h"; sourceTree = "<group>"; };
+		A5B2966B201462E5008C5633 /* UIColor+DOG.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+DOG.m"; sourceTree = "<group>"; };
+		A5B2966D201464AE008C5633 /* UIView+DOG.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+DOG.h"; sourceTree = "<group>"; };
+		A5B2966E201464AE008C5633 /* UIView+DOG.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+DOG.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3D26D8FD2013433B003CF82B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				25014CED202447970005DBA1 /* libDOGReveal.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D26D9152013433B003CF82B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D26D9202013433B003CF82B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		25014CE82024474E0005DBA1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				25014CEC2024474F0005DBA1 /* libDOGReveal.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		252E9A0520187EC800185692 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				252E9A0620187F2200185692 /* DOGTool.h */,
+				252E9A0720187F2200185692 /* DOGTool.m */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		256BD83F201AD2C700D98681 /* DOGPlayerItem */ = {
+			isa = PBXGroup;
+			children = (
+				256BD840201AD3DF00D98681 /* DOGPlayerItem.h */,
+				256BD841201AD3DF00D98681 /* DOGPlayerItem.m */,
+			);
+			path = DOGPlayerItem;
+			sourceTree = "<group>";
+		};
+		3D26D8F72013433B003CF82B = {
+			isa = PBXGroup;
+			children = (
+				25014CE72024474E0005DBA1 /* DOGReveal.xcodeproj */,
+				3D26D9022013433B003CF82B /* DOGPlayer */,
+				3D26D91B2013433B003CF82B /* DOGPlayerTests */,
+				3D26D9262013433B003CF82B /* DOGPlayerUITests */,
+				3D26D9012013433B003CF82B /* Products */,
+				A5B2965F20145BF1008C5633 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		3D26D9012013433B003CF82B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3D26D9002013433B003CF82B /* DOGPlayer.app */,
+				3D26D9182013433B003CF82B /* DOGPlayerTests.xctest */,
+				3D26D9232013433B003CF82B /* DOGPlayerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3D26D9022013433B003CF82B /* DOGPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				A5B2966820146291008C5633 /* DOGFoundation */,
+				3D26D93520134875003CF82B /* DOGPlayerController */,
+				3D26D9032013433B003CF82B /* AppDelegate.h */,
+				3D26D9042013433B003CF82B /* AppDelegate.m */,
+				3D26D9062013433B003CF82B /* ViewController.h */,
+				3D26D9072013433B003CF82B /* ViewController.m */,
+				3D26D9092013433B003CF82B /* Main.storyboard */,
+				3D26D90C2013433B003CF82B /* Assets.xcassets */,
+				3D26D90E2013433B003CF82B /* LaunchScreen.storyboard */,
+				3D26D9112013433B003CF82B /* Info.plist */,
+				3D26D9122013433B003CF82B /* main.m */,
+			);
+			path = DOGPlayer;
+			sourceTree = "<group>";
+		};
+		3D26D91B2013433B003CF82B /* DOGPlayerTests */ = {
+			isa = PBXGroup;
+			children = (
+				3D26D91C2013433B003CF82B /* DOGPlayerTests.m */,
+				3D26D91E2013433B003CF82B /* Info.plist */,
+			);
+			path = DOGPlayerTests;
+			sourceTree = "<group>";
+		};
+		3D26D9262013433B003CF82B /* DOGPlayerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3D26D9272013433B003CF82B /* DOGPlayerUITests.m */,
+				3D26D9292013433B003CF82B /* Info.plist */,
+			);
+			path = DOGPlayerUITests;
+			sourceTree = "<group>";
+		};
+		3D26D93520134875003CF82B /* DOGPlayerController */ = {
+			isa = PBXGroup;
+			children = (
+				256BD83C201ACD9100D98681 /* DOGPlayerWidget.h */,
+				256BD83D201ACD9100D98681 /* DOGPlayerWidget.m */,
+				256BD83F201AD2C700D98681 /* DOGPlayerItem */,
+				3D26D93620134875003CF82B /* DOGPlayer */,
+				3D26D93820134875003CF82B /* DOGPlayerView */,
+				3D26D93720134875003CF82B /* DOGPlayerControlView */,
+				3D26D93B20134902003CF82B /* DOGPlayerUIView */,
+			);
+			path = DOGPlayerController;
+			sourceTree = "<group>";
+		};
+		3D26D93620134875003CF82B /* DOGPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				A5B2966120145C11008C5633 /* DOGPlayer.h */,
+				A5B2966220145C11008C5633 /* DOGPlayer.m */,
+				A5B2966420145D04008C5633 /* DOGPlayerProtocol.h */,
+			);
+			path = DOGPlayer;
+			sourceTree = "<group>";
+		};
+		3D26D93720134875003CF82B /* DOGPlayerControlView */ = {
+			isa = PBXGroup;
+			children = (
+				3D26D93A201348C6003CF82B /* DOGPlayerControlViewProtocol.h */,
+				256BD839201AC82900D98681 /* DOGPlayerControlView.h */,
+				256BD83A201AC82900D98681 /* DOGPlayerControlView.m */,
+			);
+			path = DOGPlayerControlView;
+			sourceTree = "<group>";
+		};
+		3D26D93820134875003CF82B /* DOGPlayerView */ = {
+			isa = PBXGroup;
+			children = (
+				3D26D939201348B5003CF82B /* DOGPlayerViewProtocol.h */,
+				A5B2966520145FBB008C5633 /* DOGPlayerView.h */,
+				A5B2966620145FBB008C5633 /* DOGPlayerView.m */,
+			);
+			path = DOGPlayerView;
+			sourceTree = "<group>";
+		};
+		3D26D93B20134902003CF82B /* DOGPlayerUIView */ = {
+			isa = PBXGroup;
+			children = (
+				9B92441A2015D4DA009F6F65 /* DOGPlayerDunkerView.h */,
+				9B92441B2015D4DA009F6F65 /* DOGPlayerDunkerView.m */,
+				257CBA9220160D7000AA75A5 /* DOGPlayerDunkerProgressView.h */,
+				257CBA9320160D7000AA75A5 /* DOGPlayerDunkerProgressView.m */,
+				252E9A0220185A6500185692 /* DOGPlayerSliderView.h */,
+				252E9A0320185A6500185692 /* DOGPlayerSliderView.m */,
+			);
+			path = DOGPlayerUIView;
+			sourceTree = "<group>";
+		};
+		A5B2965F20145BF1008C5633 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A5B2966020145BF2008C5633 /* AVFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A5B2966820146291008C5633 /* DOGFoundation */ = {
+			isa = PBXGroup;
+			children = (
+				252E9A0520187EC800185692 /* Tool */,
+				A5B2966920146291008C5633 /* Category */,
+			);
+			path = DOGFoundation;
+			sourceTree = "<group>";
+		};
+		A5B2966920146291008C5633 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				A5B2966A201462E5008C5633 /* UIColor+DOG.h */,
+				A5B2966B201462E5008C5633 /* UIColor+DOG.m */,
+				A5B2966D201464AE008C5633 /* UIView+DOG.h */,
+				A5B2966E201464AE008C5633 /* UIView+DOG.m */,
+				A50DF43620255E2C0049A0C0 /* UIControl+DOG.h */,
+				A50DF43720255E2C0049A0C0 /* UIControl+DOG.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3D26D8FF2013433B003CF82B /* DOGPlayer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3D26D92C2013433B003CF82B /* Build configuration list for PBXNativeTarget "DOGPlayer" */;
+			buildPhases = (
+				3D26D8FC2013433B003CF82B /* Sources */,
+				3D26D8FD2013433B003CF82B /* Frameworks */,
+				3D26D8FE2013433B003CF82B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DOGPlayer;
+			productName = DOGPlayer;
+			productReference = 3D26D9002013433B003CF82B /* DOGPlayer.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3D26D9172013433B003CF82B /* DOGPlayerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3D26D92F2013433B003CF82B /* Build configuration list for PBXNativeTarget "DOGPlayerTests" */;
+			buildPhases = (
+				3D26D9142013433B003CF82B /* Sources */,
+				3D26D9152013433B003CF82B /* Frameworks */,
+				3D26D9162013433B003CF82B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3D26D91A2013433B003CF82B /* PBXTargetDependency */,
+			);
+			name = DOGPlayerTests;
+			productName = DOGPlayerTests;
+			productReference = 3D26D9182013433B003CF82B /* DOGPlayerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3D26D9222013433B003CF82B /* DOGPlayerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3D26D9322013433B003CF82B /* Build configuration list for PBXNativeTarget "DOGPlayerUITests" */;
+			buildPhases = (
+				3D26D91F2013433B003CF82B /* Sources */,
+				3D26D9202013433B003CF82B /* Frameworks */,
+				3D26D9212013433B003CF82B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3D26D9252013433B003CF82B /* PBXTargetDependency */,
+			);
+			name = DOGPlayerUITests;
+			productName = DOGPlayerUITests;
+			productReference = 3D26D9232013433B003CF82B /* DOGPlayerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3D26D8F82013433B003CF82B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0910;
+				ORGANIZATIONNAME = RavenZ;
+				TargetAttributes = {
+					3D26D8FF2013433B003CF82B = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
+					3D26D9172013433B003CF82B = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 3D26D8FF2013433B003CF82B;
+					};
+					3D26D9222013433B003CF82B = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 3D26D8FF2013433B003CF82B;
+					};
+				};
+			};
+			buildConfigurationList = 3D26D8FB2013433B003CF82B /* Build configuration list for PBXProject "DOGPlayer" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3D26D8F72013433B003CF82B;
+			productRefGroup = 3D26D9012013433B003CF82B /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 25014CE82024474E0005DBA1 /* Products */;
+					ProjectRef = 25014CE72024474E0005DBA1 /* DOGReveal.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				3D26D8FF2013433B003CF82B /* DOGPlayer */,
+				3D26D9172013433B003CF82B /* DOGPlayerTests */,
+				3D26D9222013433B003CF82B /* DOGPlayerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		25014CEC2024474F0005DBA1 /* libDOGReveal.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libDOGReveal.a;
+			remoteRef = 25014CEB2024474F0005DBA1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3D26D8FE2013433B003CF82B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D26D9102013433B003CF82B /* LaunchScreen.storyboard in Resources */,
+				3D26D90D2013433B003CF82B /* Assets.xcassets in Resources */,
+				3D26D90B2013433B003CF82B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D26D9162013433B003CF82B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D26D9212013433B003CF82B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3D26D8FC2013433B003CF82B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D26D9082013433B003CF82B /* ViewController.m in Sources */,
+				A5B2966320145C11008C5633 /* DOGPlayer.m in Sources */,
+				A5B2966720145FBB008C5633 /* DOGPlayerView.m in Sources */,
+				9B92441C2015D4DA009F6F65 /* DOGPlayerDunkerView.m in Sources */,
+				256BD842201AD3DF00D98681 /* DOGPlayerItem.m in Sources */,
+				256BD83B201AC82900D98681 /* DOGPlayerControlView.m in Sources */,
+				252E9A0820187F2200185692 /* DOGTool.m in Sources */,
+				A5B2966F201464AE008C5633 /* UIView+DOG.m in Sources */,
+				252E9A0420185A6500185692 /* DOGPlayerSliderView.m in Sources */,
+				256BD83E201ACD9100D98681 /* DOGPlayerWidget.m in Sources */,
+				3D26D9132013433B003CF82B /* main.m in Sources */,
+				A5B2966C201462E5008C5633 /* UIColor+DOG.m in Sources */,
+				3D26D9052013433B003CF82B /* AppDelegate.m in Sources */,
+				257CBA9420160D7000AA75A5 /* DOGPlayerDunkerProgressView.m in Sources */,
+				A50DF43820255E2C0049A0C0 /* UIControl+DOG.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D26D9142013433B003CF82B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D26D91D2013433B003CF82B /* DOGPlayerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D26D91F2013433B003CF82B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D26D9282013433B003CF82B /* DOGPlayerUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3D26D91A2013433B003CF82B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3D26D8FF2013433B003CF82B /* DOGPlayer */;
+			targetProxy = 3D26D9192013433B003CF82B /* PBXContainerItemProxy */;
+		};
+		3D26D9252013433B003CF82B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3D26D8FF2013433B003CF82B /* DOGPlayer */;
+			targetProxy = 3D26D9242013433B003CF82B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3D26D9092013433B003CF82B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3D26D90A2013433B003CF82B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3D26D90E2013433B003CF82B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3D26D90F2013433B003CF82B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3D26D92A2013433B003CF82B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		3D26D92B2013433B003CF82B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3D26D92D2013433B003CF82B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				"HEADER_SEARCH_PATHS[sdk=*]" = "$(PROJECT_DIR)/DOGReveal/DOGReveal";
+				INFOPLIST_FILE = DOGPlayer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				"LIBRARY_SEARCH_PATHS[sdk=*]" = "$(PROJECT_DIR)/DOGReveal/DOGReveal";
+				PRODUCT_BUNDLE_IDENTIFIER = com.RavenZ.DOGPlayer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				"USER_HEADER_SEARCH_PATHS[arch=*]" = "$(PROJECT_DIR)/DOGReveal/DOGReveal";
+			};
+			name = Debug;
+		};
+		3D26D92E2013433B003CF82B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = DOGPlayer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.RavenZ.DOGPlayer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		3D26D9302013433B003CF82B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = DOGPlayerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.RavenZ.DOGPlayerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DOGPlayer.app/DOGPlayer";
+			};
+			name = Debug;
+		};
+		3D26D9312013433B003CF82B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = DOGPlayerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.RavenZ.DOGPlayerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DOGPlayer.app/DOGPlayer";
+			};
+			name = Release;
+		};
+		3D26D9332013433B003CF82B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = DOGPlayerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.RavenZ.DOGPlayerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = DOGPlayer;
+			};
+			name = Debug;
+		};
+		3D26D9342013433B003CF82B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = DOGPlayerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.RavenZ.DOGPlayerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = DOGPlayer;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3D26D8FB2013433B003CF82B /* Build configuration list for PBXProject "DOGPlayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3D26D92A2013433B003CF82B /* Debug */,
+				3D26D92B2013433B003CF82B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3D26D92C2013433B003CF82B /* Build configuration list for PBXNativeTarget "DOGPlayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3D26D92D2013433B003CF82B /* Debug */,
+				3D26D92E2013433B003CF82B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3D26D92F2013433B003CF82B /* Build configuration list for PBXNativeTarget "DOGPlayerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3D26D9302013433B003CF82B /* Debug */,
+				3D26D9312013433B003CF82B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3D26D9322013433B003CF82B /* Build configuration list for PBXNativeTarget "DOGPlayerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3D26D9332013433B003CF82B /* Debug */,
+				3D26D9342013433B003CF82B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3D26D8F82013433B003CF82B /* Project object */;
+}
