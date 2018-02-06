@@ -57,6 +57,13 @@ DOGPlayerViewDelegate
     _controlView.dunkerView.currentPlayProgress = progress;
 }
 
+- (void)playerView:(DOGPlayerView *)playerView
+bufferProgressChanged:(CGFloat)progress
+     totalDuration:(NSTimeInterval)totalTime
+ currentBufferTime:(NSTimeInterval)currentTime {
+    _controlView.dunkerView.currentBufferProgress = progress;
+}
+
 #pragma mark - DOGPlayerSliderViewDelegate
 - (void)playerSliderViewBegin:(DOGPlayerSliderView *)sliderView {
     NSLog(@"begin");

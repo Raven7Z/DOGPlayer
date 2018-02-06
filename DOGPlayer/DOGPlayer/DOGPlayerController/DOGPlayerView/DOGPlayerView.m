@@ -44,8 +44,6 @@
     return self;
 }
 
-#pragma mark - privater method
-
 #pragma mark - DOGPlayerProtocol
 - (void)play {
     if (_player == nil) {
@@ -86,8 +84,28 @@
                 [_delegate playerView:self status:status];
             }
         } else if ([keyPath isEqualToString:@"loadedTimeRanges"]) {
-            
+            [self calculateBufferLoadedTimeRanges];
         }
+    }
+}
+
+#pragma mark - privater method
+
+/**
+ calcuate video buffer progress
+ */
+- (void)calculateBufferLoadedTimeRanges {
+    NSArray *loadedTimeRanges = [_player.currentItem loadedTimeRanges];
+    CMTimeRange timeRange = [loadedTimeRanges.firstObject CMTimeRangeValue];
+    float startSeconds = CMTimeGetSeconds(timeRange.start);
+    float durationSeconds = CMTimeGetSeconds(timeRange.duration);
+    NSTimeInterval timeInterval = startSeconds + durationSeconds;
+    
+    CGFloat totalDuration = CMTimeGetSeconds(_player.currentItem.duration);
+    CGFloat bufferProgress = timeInterval / totalDuration;
+    
+    if (_delegate != nil && [_delegate conformsToProtocol:@protocol(DOGPlayerViewDelegate)] && [_delegate respondsToSelector:@selector(playerView:bufferProgressChanged:totalDuration:currentBufferTime:)]) {
+        [_delegate playerView:self bufferProgressChanged:bufferProgress totalDuration:totalDuration currentBufferTime:timeInterval];
     }
 }
 

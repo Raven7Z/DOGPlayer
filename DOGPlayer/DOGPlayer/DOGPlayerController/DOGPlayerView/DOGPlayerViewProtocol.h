@@ -63,4 +63,18 @@ typedef NS_ENUM(NSInteger, DOGPlayerViewStatus) {
        currentTime:(NSTimeInterval)currentTime;
 
 
+/**
+ playerView buffer progress changed
+
+ @param playerView DOGPlayerView
+ @param progress changed value
+ @param totalTime video total time
+ @param currentTime current buffer time
+ */
+- (void)playerView:(DOGPlayerView *_Nonnull)playerView
+bufferProgressChanged:(CGFloat)progress
+     totalDuration:(NSTimeInterval)totalTime
+ currentBufferTime:(NSTimeInterval)currentTime;
+
+
 @end
