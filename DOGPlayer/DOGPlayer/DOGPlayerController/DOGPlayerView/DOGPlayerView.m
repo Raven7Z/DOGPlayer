@@ -55,7 +55,7 @@
 }
 
 #pragma mark - DOGPlayerViewProtocol
-- (void)configPlayerURL:(NSURL *)url {
+- (void)configPlayerURL:(NSURL *)url placeHoldImage:(UIImage * _Nullable)image {
     if (url == nil) {
         return;
     }
@@ -67,6 +67,10 @@
     self.playerLayer = [AVPlayerLayer playerLayerWithPlayer:_player];
     
     [self play];
+}
+
+- (void)configPlayerPoint:(NSTimeInterval)second completionHandler:(void (^)(BOOL))completionHandler {
+    
 }
 
 #pragma mark - KVO

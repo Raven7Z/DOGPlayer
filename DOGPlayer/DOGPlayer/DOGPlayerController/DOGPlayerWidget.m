@@ -38,7 +38,7 @@ DOGPlayerViewDelegate
 
 #pragma mark - public method
 - (void)startPlay:(DOGPlayerItem *)item {
-    [self.playerView configPlayerURL:[NSURL URLWithString:item.videoURL]];
+    [self.playerView configPlayerURL:[NSURL URLWithString:item.videoURL] placeHoldImage:nil];
 }
 
 #pragma mark - Delegate

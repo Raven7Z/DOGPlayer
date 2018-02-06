@@ -14,8 +14,19 @@
  set video URL
 
  @param url URL
+ @param image UIImage
  */
-- (void)configPlayerURL:(NSURL *_Nonnull)url;
+- (void)configPlayerURL:(NSURL *_Nonnull)url
+         placeHoldImage:(UIImage *_Nullable)image;
+
+/**
+ play a video at point time, finished value will turn to YES after completion
+
+ @param second NSTimeInterval
+ @param completionHandler finished / YES represet it's over
+ */
+- (void)configPlayerPoint:(NSTimeInterval)second
+         completionHandler:(void (^_Nullable)(BOOL finished))completionHandler;
 
 @end
 
