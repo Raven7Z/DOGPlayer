@@ -22,6 +22,8 @@ DOGPlayerViewDelegate
 @property (nonatomic, strong) DOGPlayerView *playerView;
 @property (nonatomic, strong) DOGPlayerControlView *controlView;
 
+@property (nonatomic, assign) DOGPlayerSliderViewType sliderViewType;
+
 @end
 
 @implementation DOGPlayerWidget
@@ -54,7 +56,9 @@ DOGPlayerViewDelegate
        currentTime:(NSTimeInterval)currentTime {
     _controlView.dunkerView.totalTime = totalTime;
     _controlView.dunkerView.currentTime = currentTime;
-    _controlView.dunkerView.currentPlayProgress = progress;
+    if (_sliderViewType != DOGPlayerSliderViewDragType) {
+        _controlView.dunkerView.currentPlayProgress = progress;
+    }
 }
 
 - (void)playerView:(DOGPlayerView *)playerView
@@ -67,15 +71,19 @@ bufferProgressChanged:(CGFloat)progress
 #pragma mark - DOGPlayerSliderViewDelegate
 - (void)playerSliderViewBegin:(DOGPlayerSliderView *)sliderView {
     NSLog(@"begin");
+    _sliderViewType = sliderView.type;
 }
 
 - (void)playerSliderViewCancle:(DOGPlayerSliderView *)sliderView {
     NSLog(@"cancle");
+    _sliderViewType = sliderView.type;
 }
 
 - (void)playerSliderViewValueChanged:(DOGPlayerSliderView *)sliderView
                             progress:(CGFloat)progress {
     NSLog(@"change");
+    _sliderViewType = sliderView.type;
+    _controlView.dunkerView.currentPlayProgress = progress;
 }
 
 #pragma mark - property

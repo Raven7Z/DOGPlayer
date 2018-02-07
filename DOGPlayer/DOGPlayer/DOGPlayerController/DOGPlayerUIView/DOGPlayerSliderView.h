@@ -14,6 +14,13 @@
 
 #import "DOGPlayerControlViewProtocol.h"
 
+typedef NS_ENUM(NSInteger, DOGPlayerSliderViewType) {
+    DOGPlayerSliderViewInitType,
+    DOGPlayerSliderViewBeginType,
+    DOGPlayerSliderViewDragType,
+    DOGPlayerSliderViewCancleType
+};
+
 @interface DOGPlayerSliderView : UIView
 
 @property (nonatomic, weak) id <DOGPlayerSliderViewDelegate> delegate;
@@ -27,5 +34,10 @@
  current buffer progress value
  */
 @property (nonatomic, assign) CGFloat currentBufferProgress;
+
+/**
+ current sliderView action status
+ */
+@property (nonatomic, assign) DOGPlayerSliderViewType type;
 
 @end

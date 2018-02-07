@@ -53,6 +53,7 @@ static const CGFloat kSliderButtonAnimationDuration = 0.2;
         self.backgroundColor = [UIColor clearColor];
         
         self.autoMoving = YES;
+        self.type = DOGPlayerSliderViewInitType;
         [self addSubview:self.currentBufferProgressView];
         [self.currentBufferProgressView addSubview:self.currentSliderProgressView];
         [self addSubview:self.sliderButton];
@@ -71,6 +72,7 @@ static const CGFloat kSliderButtonAnimationDuration = 0.2;
 - (void)sliderBegin:(UIButton *)sender {
     
     [self sliderButtonExtensionAnimation:sender];
+    self.type = DOGPlayerSliderViewBeginType;
     if (_delegate != nil && [_delegate conformsToProtocol:@protocol(DOGPlayerSliderViewDelegate)] && [_delegate respondsToSelector:@selector(playerSliderViewBegin:)]) {
         [_delegate playerSliderViewBegin:self];
     }
@@ -87,15 +89,17 @@ static const CGFloat kSliderButtonAnimationDuration = 0.2;
     
     [self sliderButtonExtensionAnimation:sender];
     self.autoMoving = YES;
-
+    self.type = DOGPlayerSliderViewDragType;
+    
     UITouch *touch = [[event touchesForView:sender] anyObject];
     CGPoint location = [touch locationInView:_currentSliderProgressView];
     CGFloat fatherViewWidth = _currentSliderProgressView.dog_Width;
     if (location.x >= 0 && location.x <= fatherViewWidth) {
 
-        self.currentSliderProgress = MAX(0.0, MIN(1.0, location.x / fatherViewWidth));
+//        self.currentSliderProgress = MAX(0.0, MIN(1.0, location.x / fatherViewWidth));
+        CGFloat progress = MAX(0.0, MIN(1.0, location.x / fatherViewWidth));
         if (_delegate != nil && [_delegate conformsToProtocol:@protocol(DOGPlayerSliderViewDelegate)] && [_delegate respondsToSelector:@selector(playerSliderViewValueChanged:progress:)]) {
-            [_delegate playerSliderViewValueChanged:self progress:self.currentSliderProgress];
+            [_delegate playerSliderViewValueChanged:self progress:progress];
         }
     }
 }
@@ -108,6 +112,7 @@ static const CGFloat kSliderButtonAnimationDuration = 0.2;
 - (void)sliderEnd:(UIButton *)sender {
     
     [self sliderButtonShrinkAnimation:sender];
+    self.type = DOGPlayerSliderViewCancleType;
     if (_delegate != nil && [_delegate conformsToProtocol:@protocol(DOGPlayerSliderViewDelegate)] && [_delegate respondsToSelector:@selector(playerSliderViewCancle:)]) {
         [_delegate playerSliderViewCancle:self];
     }
@@ -119,7 +124,6 @@ static const CGFloat kSliderButtonAnimationDuration = 0.2;
     if (sender.layer.cornerRadius == kSliderButtonDragHeight /2) {
         return;
     }
-
     [UIView animateWithDuration:kSliderButtonAnimationDuration animations:^{
         CGRect currentFrame = sender.frame;
         CGFloat x = -kSliderButtonDragWidth /2  +_currentBufferProgressView.dog_Left +_currentSliderProgressView.dog_Width *self.currentSliderProgress;
