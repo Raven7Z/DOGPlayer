@@ -28,6 +28,7 @@
 		A5B2966720145FBB008C5633 /* DOGPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A5B2966620145FBB008C5633 /* DOGPlayerView.m */; };
 		A5B2966C201462E5008C5633 /* UIColor+DOG.m in Sources */ = {isa = PBXBuildFile; fileRef = A5B2966B201462E5008C5633 /* UIColor+DOG.m */; };
 		A5B2966F201464AE008C5633 /* UIView+DOG.m in Sources */ = {isa = PBXBuildFile; fileRef = A5B2966E201464AE008C5633 /* UIView+DOG.m */; };
+		A5F618A9203273BE003CADE2 /* DOGPlayerLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = A5F618A8203273BE003CADE2 /* DOGPlayerLoadingView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +101,8 @@
 		A5B2966B201462E5008C5633 /* UIColor+DOG.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+DOG.m"; sourceTree = "<group>"; };
 		A5B2966D201464AE008C5633 /* UIView+DOG.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+DOG.h"; sourceTree = "<group>"; };
 		A5B2966E201464AE008C5633 /* UIView+DOG.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+DOG.m"; sourceTree = "<group>"; };
+		A5F618A7203273BE003CADE2 /* DOGPlayerLoadingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DOGPlayerLoadingView.h; sourceTree = "<group>"; };
+		A5F618A8203273BE003CADE2 /* DOGPlayerLoadingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DOGPlayerLoadingView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -265,6 +268,7 @@
 				257CBA9320160D7000AA75A5 /* DOGPlayerDunkerProgressView.m */,
 				252E9A0220185A6500185692 /* DOGPlayerSliderView.h */,
 				252E9A0320185A6500185692 /* DOGPlayerSliderView.m */,
+				A5F618A520327355003CADE2 /* DOGPlayerDisplayView */,
 			);
 			path = DOGPlayerUIView;
 			sourceTree = "<group>";
@@ -297,6 +301,15 @@
 				A50DF43720255E2C0049A0C0 /* UIControl+DOG.m */,
 			);
 			path = Category;
+			sourceTree = "<group>";
+		};
+		A5F618A520327355003CADE2 /* DOGPlayerDisplayView */ = {
+			isa = PBXGroup;
+			children = (
+				A5F618A7203273BE003CADE2 /* DOGPlayerLoadingView.h */,
+				A5F618A8203273BE003CADE2 /* DOGPlayerLoadingView.m */,
+			);
+			path = DOGPlayerDisplayView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -449,6 +462,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D26D9082013433B003CF82B /* ViewController.m in Sources */,
+				A5F618A9203273BE003CADE2 /* DOGPlayerLoadingView.m in Sources */,
 				A5B2966320145C11008C5633 /* DOGPlayer.m in Sources */,
 				A5B2966720145FBB008C5633 /* DOGPlayerView.m in Sources */,
 				9B92441C2015D4DA009F6F65 /* DOGPlayerDunkerView.m in Sources */,

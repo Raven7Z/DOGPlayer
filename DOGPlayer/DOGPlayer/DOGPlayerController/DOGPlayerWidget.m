@@ -10,6 +10,7 @@
 
 #import "DOGPlayerView.h"
 #import "DOGPlayerControlView.h"
+#import "DOGPlayerLoadingView.h"
 
 #import "UIView+DOG.h"
 
@@ -23,6 +24,8 @@ DOGPlayerViewDelegate
 @property (nonatomic, strong) DOGPlayerControlView *controlView;
 
 @property (nonatomic, assign) DOGPlayerSliderViewType sliderViewType;
+
+@property (nonatomic, strong) DOGPlayerLoadingView *loadingView;
 
 @end
 
@@ -47,7 +50,30 @@ DOGPlayerViewDelegate
 #pragma mark - DOGPlayerViewDelegate
 - (void)playerView:(DOGPlayerView *)playerView
             status:(DOGPlayerViewStatus)status {
-    
+    switch (status) {
+        case DOGPlayerViewStatusUnknown:
+            NSLog(@"DOGPlayerViewStatusUnknown");
+            break;
+        case DOGPlayerViewStatusReadyToPlay:
+            NSLog(@"DOGPlayerViewStatusReadyToPlay");
+            break;
+        case DOGPlayerViewStatusFailed:
+            NSLog(@"DOGPlayerViewStatusFailed");
+            break;
+        case DOGPlayerViewStatusBuffering:
+            NSLog(@"DOGPlayerViewStatusBuffering");
+            [self addSubview:self.loadingView];
+            break;
+        case DOGPlayerViewStatusPause:
+            NSLog(@"DOGPlayerViewStatusPause");
+            break;
+        case DOGPlayerViewStatusPlaying:
+            NSLog(@"DOGPlayerViewStatusPlaying");
+            break;
+            
+        default:
+            break;
+    }
 }
 
 - (void)playerView:(DOGPlayerView *)playerView
@@ -101,6 +127,14 @@ bufferProgressChanged:(CGFloat)progress
         _controlView.delegate = self;
     }
     return _controlView;
+}
+
+- (DOGPlayerLoadingView *)loadingView {
+    if (_loadingView == nil) {
+        _loadingView = [[DOGPlayerLoadingView alloc] initWithFrame:CGRectMake(0, 0, 46, 46)];
+        _loadingView.center = self.playerView.center;
+    }
+    return _loadingView;
 }
 
 @end

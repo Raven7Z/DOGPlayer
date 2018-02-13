@@ -19,4 +19,9 @@ DOGPlayerProtocol
 
 @property (nonatomic, weak) id <DOGPlayerViewDelegate> delegate;
 
+/**
+ current player status
+ */
+@property (nonatomic, readonly) DOGPlayerViewStatus status;
+
 @end
