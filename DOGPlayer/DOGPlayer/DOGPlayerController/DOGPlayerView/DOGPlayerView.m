@@ -15,13 +15,11 @@
 @interface DOGPlayerView ()
 
 @property (nonatomic, assign) DOGPlayerViewStatus status;
-
 @property (nonatomic, strong) DOGPlayer *player;
 
 @property (nonatomic, strong) AVURLAsset *asset;
 @property (nonatomic, strong) AVPlayerItem *playerItem;
 @property (nonatomic, strong) AVPlayerLayer *playerLayer;
-
 @property (nonatomic, strong) NSURL *url;
 
 /**
@@ -33,6 +31,11 @@
  video total time
  */
 @property (nonatomic, assign) NSTimeInterval totalTime;
+
+/**
+ playerItem status buffering
+ */
+@property (nonatomic, assign, getter=isBuffering) BOOL buffering;
 
 @end
 
@@ -130,7 +133,21 @@
 - (void)dealPlaybackBufferEmpty {
     if (_playerItem.playbackBufferEmpty) {
         self.status = DOGPlayerViewStatusBuffering;
+
+        if (self.isBuffering) {
+            return;
+        }
+        self.buffering = YES;
         [_player pause];
+        
+        __weak typeof(self)weakSelf = self;
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [weakSelf.player play];
+            weakSelf.buffering = NO;
+            if (!weakSelf.player.currentItem.isPlaybackLikelyToKeepUp) {
+                [weakSelf dealPlaybackBufferEmpty];
+            }
+        });
     }
 }
 
@@ -154,6 +171,8 @@
     if (_playerItem != nil) {
         [_playerItem removeObserver:self forKeyPath:@"status"];
         [_playerItem removeObserver:self forKeyPath:@"loadedTimeRanges"];
+        [_playerItem removeObserver:self forKeyPath:@"playbackBufferEmpty"];
+        [_playerItem removeObserver:self forKeyPath:@"playbackLikelyToKeepUp"];
         _playerItem = nil;
     }
     

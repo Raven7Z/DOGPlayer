@@ -46,6 +46,15 @@ DOGPlayerViewDelegate
     [self.playerView configPlayerURL:[NSURL URLWithString:item.videoURL] placeHoldImage:nil];
 }
 
+#pragma mark - privater method
+- (void)showLoadingView {
+    [self addSubview:self.loadingView];
+}
+
+- (void)removeLoadingView {
+    [self.loadingView removeFromSuperview];
+}
+
 #pragma mark - Delegate
 #pragma mark - DOGPlayerViewDelegate
 - (void)playerView:(DOGPlayerView *)playerView
@@ -62,12 +71,13 @@ DOGPlayerViewDelegate
             break;
         case DOGPlayerViewStatusBuffering:
             NSLog(@"DOGPlayerViewStatusBuffering");
-            [self addSubview:self.loadingView];
+            [self showLoadingView];
             break;
         case DOGPlayerViewStatusPause:
             NSLog(@"DOGPlayerViewStatusPause");
             break;
         case DOGPlayerViewStatusPlaying:
+            [self removeLoadingView];
             NSLog(@"DOGPlayerViewStatusPlaying");
             break;
             
