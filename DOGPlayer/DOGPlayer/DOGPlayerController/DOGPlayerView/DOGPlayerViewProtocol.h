@@ -39,6 +39,8 @@
  - DOGPlayerViewStatusBuffering: now video is buffering
  - DOGPlayerViewStatusPause: video pause
  - DOGPlayerViewStatusPlaying: now video is playing
+ - DOGPlayerViewStatusNone: init status
+ - DOGPlayerViewStatusEnd: video play end
  */
 typedef NS_ENUM(NSInteger, DOGPlayerViewStatus) {
     DOGPlayerViewStatusUnknown = 0,
@@ -46,7 +48,9 @@ typedef NS_ENUM(NSInteger, DOGPlayerViewStatus) {
     DOGPlayerViewStatusFailed,
     DOGPlayerViewStatusBuffering,
     DOGPlayerViewStatusPause,
-    DOGPlayerViewStatusPlaying
+    DOGPlayerViewStatusPlaying,
+    DOGPlayerViewStatusNone,
+    DOGPlayerViewStatusEnd
 };
 
 @class DOGPlayerView;

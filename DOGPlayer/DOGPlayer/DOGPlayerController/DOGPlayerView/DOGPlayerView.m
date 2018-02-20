@@ -108,6 +108,7 @@
         }
             break;
         default:
+            self.status = DOGPlayerViewStatusUnknown;
             break;
     }
 }
