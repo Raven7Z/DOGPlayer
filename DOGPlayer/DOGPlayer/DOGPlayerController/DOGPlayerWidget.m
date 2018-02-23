@@ -61,6 +61,7 @@ DOGPlayerViewDelegate
 #pragma mark - DOGPlayerViewDelegate
 - (void)playerView:(DOGPlayerView *)playerView
             status:(DOGPlayerViewStatus)status {
+    
     switch (status) {
         case DOGPlayerViewStatusUnknown:
             NSLog(@"DOGPlayerViewStatusUnknown");
@@ -92,6 +93,7 @@ DOGPlayerViewDelegate
    progressChanged:(CGFloat)progress
          totalTime:(NSTimeInterval)totalTime
        currentTime:(NSTimeInterval)currentTime {
+    
     _controlView.dunkerView.totalTime = totalTime;
     _controlView.dunkerView.currentTime = currentTime;
     if (_sliderViewType != DOGPlayerSliderViewDragType) {
@@ -103,22 +105,29 @@ DOGPlayerViewDelegate
 bufferProgressChanged:(CGFloat)progress
      totalDuration:(NSTimeInterval)totalTime
  currentBufferTime:(NSTimeInterval)currentTime {
+    
     _controlView.dunkerView.currentBufferProgress = progress;
 }
 
 #pragma mark - DOGPlayerSliderViewDelegate
 - (void)playerSliderViewBegin:(DOGPlayerSliderView *)sliderView {
+    
     NSLog(@"begin");
     _sliderViewType = sliderView.type;
 }
 
 - (void)playerSliderViewCancle:(DOGPlayerSliderView *)sliderView {
+    
     NSLog(@"cancle");
     _sliderViewType = sliderView.type;
+    [_playerView configPlayerPoint:sliderView.currentSliderProgress completionHandler:^(BOOL finished) {
+        NSLog(@"finished status :%d, sliderProgress = %f", finished, sliderView.currentSliderProgress);
+    }];
 }
 
 - (void)playerSliderViewValueChanged:(DOGPlayerSliderView *)sliderView
                             progress:(CGFloat)progress {
+    
     NSLog(@"change");
     _sliderViewType = sliderView.type;
     _controlView.dunkerView.currentPlayProgress = progress;

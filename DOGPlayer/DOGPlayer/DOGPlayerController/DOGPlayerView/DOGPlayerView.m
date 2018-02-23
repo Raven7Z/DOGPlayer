@@ -73,7 +73,16 @@
 }
 
 - (void)configPlayerPoint:(NSTimeInterval)second completionHandler:(void (^)(BOOL))completionHandler {
-    
+    NSLog(@"sliderProgress = %f", second);
+    CGFloat totalDuration = CMTimeGetSeconds(_player.currentItem.duration);
+    CMTime startTime = CMTimeMakeWithSeconds(second * totalDuration, _playerItem.currentTime.timescale);
+    __weak typeof(self)weakSelf = self;
+    [_player seekToTime:startTime completionHandler:^(BOOL finished) {
+        if (finished) {
+            [weakSelf.player play];
+        }
+        completionHandler(finished);
+    }];
 }
 
 #pragma mark - KVO
