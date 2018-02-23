@@ -93,5 +93,12 @@ bufferProgressChanged:(CGFloat)progress
      totalDuration:(NSTimeInterval)totalTime
  currentBufferTime:(NSTimeInterval)currentTime;
 
+/**
+ when player buffer is empty, playerView loading duration
+
+ @return loading duration
+ */
+- (NSTimeInterval)playerViewDealPlaybackBufferEmptyDuration;
+
 
 @end

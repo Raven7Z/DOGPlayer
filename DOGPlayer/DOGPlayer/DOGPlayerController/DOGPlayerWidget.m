@@ -14,6 +14,8 @@
 
 #import "UIView+DOG.h"
 
+static const CGFloat kLoadingDuration = 0.5;
+
 @interface DOGPlayerWidget ()
 <
 DOGPlayerViewDelegate
@@ -122,6 +124,10 @@ bufferProgressChanged:(CGFloat)progress
     _controlView.dunkerView.currentPlayProgress = progress;
 }
 
+- (CGFloat)playerViewDealPlaybackBufferEmptyDuration {
+    return kLoadingDuration;
+}
+
 #pragma mark - property
 - (DOGPlayerView *)playerView {
     if (_playerView == nil) {
@@ -141,7 +147,7 @@ bufferProgressChanged:(CGFloat)progress
 
 - (DOGPlayerLoadingView *)loadingView {
     if (_loadingView == nil) {
-        _loadingView = [[DOGPlayerLoadingView alloc] initWithFrame:CGRectMake(0, 0, 46, 46)];
+        _loadingView = [[DOGPlayerLoadingView alloc] initWithFrame:CGRectMake(0, 0, 46, 46) duration:kLoadingDuration];
         _loadingView.center = self.playerView.center;
     }
     return _loadingView;

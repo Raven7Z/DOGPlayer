@@ -10,6 +10,15 @@
 
 @interface DOGPlayerLoadingView : UIView
 
+/**
+ create loadingView
+
+ @param frame loadingView frame
+ @param duration loading duration
+ @return DOGPlayerLoadingView model
+ */
+- (instancetype)initWithFrame:(CGRect)frame duration:(NSTimeInterval)duration;
+
 - (void)startLoading;
 
 - (void)endLoading;
