@@ -96,7 +96,6 @@ static const CGFloat kSliderButtonAnimationDuration = 0.2;
     CGFloat fatherViewWidth = _currentSliderProgressView.dog_Width;
     if (location.x >= 0 && location.x <= fatherViewWidth) {
 
-//        self.currentSliderProgress = MAX(0.0, MIN(1.0, location.x / fatherViewWidth));
         CGFloat progress = MAX(0.0, MIN(1.0, location.x / fatherViewWidth));
         if (_delegate != nil && [_delegate conformsToProtocol:@protocol(DOGPlayerSliderViewDelegate)] && [_delegate respondsToSelector:@selector(playerSliderViewValueChanged:progress:)]) {
             [_delegate playerSliderViewValueChanged:self progress:progress];
@@ -124,10 +123,19 @@ static const CGFloat kSliderButtonAnimationDuration = 0.2;
     if (sender.layer.cornerRadius == kSliderButtonDragHeight /2) {
         return;
     }
+    __weak typeof(self)weakSelf = self;
     [UIView animateWithDuration:kSliderButtonAnimationDuration animations:^{
+        if (weakSelf == nil) {
+            return ;
+        }
+        __strong __typeof__(weakSelf) strongSelf = weakSelf;
+        if (!strongSelf) {
+            return;
+        }
+        
         CGRect currentFrame = sender.frame;
-        CGFloat x = -kSliderButtonDragWidth /2  +_currentBufferProgressView.dog_Left +_currentSliderProgressView.dog_Width *self.currentSliderProgress;
-        CGFloat y = -(kSliderButtonDragHeight -self.dog_Height) /2;
+        CGFloat x = -kSliderButtonDragWidth /2  + strongSelf.currentBufferProgressView.dog_Left + strongSelf.currentSliderProgressView.dog_Width * strongSelf.currentSliderProgress;
+        CGFloat y = -(kSliderButtonDragHeight - strongSelf.dog_Height) /2;
         currentFrame = CGRectMake(x, y, kSliderButtonDragWidth, kSliderButtonDragHeight);
         sender.layer.cornerRadius = kSliderButtonDragHeight /2;
         sender.frame = currentFrame;
@@ -138,14 +146,28 @@ static const CGFloat kSliderButtonAnimationDuration = 0.2;
     __weak typeof(self)weakSelf = self;
     self.autoMoving = YES;
     [UIView animateWithDuration:kSliderButtonAnimationDuration animations:^{
+        if (weakSelf == nil) {
+            return ;
+        }
+        __strong __typeof__(weakSelf) strongSelf = weakSelf;
+        if (!strongSelf) {
+            return;
+        }
         CGRect currentFrame = sender.frame;
-        CGFloat x = -kSliderButtonNormalWidth /2 +_currentBufferProgressView.dog_Left +_currentSliderProgressView.dog_Width *self.currentSliderProgress;
-        CGFloat y = -(kSliderButtonNormalHeight -self.dog_Height) /2;
+        CGFloat x = -kSliderButtonNormalWidth /2 + strongSelf.currentBufferProgressView.dog_Left + strongSelf.currentSliderProgressView.dog_Width * strongSelf.currentSliderProgress;
+        CGFloat y = -(kSliderButtonNormalHeight - strongSelf.dog_Height) /2;
         currentFrame = CGRectMake(x, y, kSliderButtonNormalWidth, kSliderButtonNormalHeight);
         sender.layer.cornerRadius = kSliderButtonNormalHeight /2;
         sender.frame = currentFrame;
     } completion:^(BOOL finished) {
-        [weakSelf.sliderButton setDog_HitEdgeInsets:SliderButtonHitEdgeInsets];
+        if (weakSelf == nil) {
+            return ;
+        }
+        __strong __typeof__(weakSelf) strongSelf = weakSelf;
+        if (!strongSelf) {
+            return;
+        }
+        [strongSelf.sliderButton setDog_HitEdgeInsets:SliderButtonHitEdgeInsets];
     }];
 }
 

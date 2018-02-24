@@ -120,7 +120,15 @@ bufferProgressChanged:(CGFloat)progress
     
     NSLog(@"cancle");
     _sliderViewType = sliderView.type;
+    __weak typeof(self)weakSelf = self;
     [_playerView configPlayerPoint:sliderView.currentSliderProgress completionHandler:^(BOOL finished) {
+        if (weakSelf == nil) {
+            return ;
+        }
+        __strong __typeof__(weakSelf) strongSelf = weakSelf;
+        if (!strongSelf) {
+            return;
+        }
         NSLog(@"finished status :%d, sliderProgress = %f", finished, sliderView.currentSliderProgress);
     }];
 }

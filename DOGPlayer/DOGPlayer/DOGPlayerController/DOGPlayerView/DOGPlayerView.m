@@ -78,8 +78,16 @@
     CMTime startTime = CMTimeMakeWithSeconds(second * totalDuration, _playerItem.currentTime.timescale);
     __weak typeof(self)weakSelf = self;
     [_player seekToTime:startTime completionHandler:^(BOOL finished) {
+        if (weakSelf == nil) {
+            return ;
+        }
+        __strong __typeof__(weakSelf) strongSelf = weakSelf;
+        if (!strongSelf) {
+            return;
+        }
+        
         if (finished) {
-            [weakSelf.player play];
+            [strongSelf.player play];
         }
         completionHandler(finished);
     }];
@@ -153,10 +161,18 @@
         __weak typeof(self)weakSelf = self;
         NSTimeInterval duration = [_delegate playerViewDealPlaybackBufferEmptyDuration];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(duration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [weakSelf.player play];
-            weakSelf.buffering = NO;
-            if (!weakSelf.player.currentItem.isPlaybackLikelyToKeepUp) {
-                [weakSelf dealPlaybackBufferEmpty];
+            if (weakSelf == nil) {
+                return ;
+            }
+            __strong __typeof__(weakSelf) strongSelf = weakSelf;
+            if (!strongSelf) {
+                return;
+            }
+            
+            [strongSelf.player play];
+            strongSelf.buffering = NO;
+            if (!strongSelf.player.currentItem.isPlaybackLikelyToKeepUp) {
+                [strongSelf dealPlaybackBufferEmpty];
             }
         });
     }
@@ -203,17 +219,25 @@
     
     __weak typeof(self)weakSelf = self;
     [_player addPeriodicTimeObserverForInterval:CMTimeMake(1.0, 1.0) queue:nil usingBlock:^(CMTime time) {
-        AVPlayerItem *currentItem = weakSelf.playerItem;
+        if (weakSelf == nil) {
+            return ;
+        }
+        __strong __typeof__(weakSelf) strongSelf = weakSelf;
+        if (!strongSelf) {
+            return;
+        }
+        
+        AVPlayerItem *currentItem = strongSelf.playerItem;
         NSArray *loadedRanges = currentItem.seekableTimeRanges;
         if (loadedRanges.count > 0 && currentItem.duration.timescale != 0) {
-            weakSelf.currentTime = (NSTimeInterval)CMTimeGetSeconds([currentItem currentTime]);
-            weakSelf.totalTime = (NSTimeInterval)currentItem.duration.value / (NSTimeInterval)currentItem.duration.timescale;
-            CGFloat progress = MAX(0.0, MIN(1.0, weakSelf.currentTime / weakSelf.totalTime));
-            if (weakSelf.delegate != nil && [weakSelf.delegate respondsToSelector:@selector(playerView:progressChanged:totalTime:currentTime:)] && [weakSelf.delegate conformsToProtocol:@protocol(DOGPlayerViewDelegate)]) {
-                [weakSelf.delegate playerView:weakSelf
+            strongSelf.currentTime = (NSTimeInterval)CMTimeGetSeconds([currentItem currentTime]);
+            strongSelf.totalTime = (NSTimeInterval)currentItem.duration.value / (NSTimeInterval)currentItem.duration.timescale;
+            CGFloat progress = MAX(0.0, MIN(1.0, strongSelf.currentTime / strongSelf.totalTime));
+            if (strongSelf.delegate != nil && [strongSelf.delegate respondsToSelector:@selector(playerView:progressChanged:totalTime:currentTime:)] && [strongSelf.delegate conformsToProtocol:@protocol(DOGPlayerViewDelegate)]) {
+                [strongSelf.delegate playerView:strongSelf
                               progressChanged:progress
-                                    totalTime:weakSelf.totalTime
-                                  currentTime:weakSelf.currentTime];
+                                    totalTime:strongSelf.totalTime
+                                  currentTime:strongSelf.currentTime];
             }
         }
     }];
