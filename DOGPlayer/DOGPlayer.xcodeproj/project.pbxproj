@@ -10,6 +10,7 @@
 		25014CED202447970005DBA1 /* libDOGReveal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 25014CEC2024474F0005DBA1 /* libDOGReveal.a */; };
 		252E9A0420185A6500185692 /* DOGPlayerSliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 252E9A0320185A6500185692 /* DOGPlayerSliderView.m */; };
 		252E9A0820187F2200185692 /* DOGTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 252E9A0720187F2200185692 /* DOGTool.m */; };
+		2545E6942041281100C7200C /* DOGPlayerPlayButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2545E6932041281100C7200C /* DOGPlayerPlayButton.m */; };
 		256BD83B201AC82900D98681 /* DOGPlayerControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 256BD83A201AC82900D98681 /* DOGPlayerControlView.m */; };
 		256BD83E201ACD9100D98681 /* DOGPlayerWidget.m in Sources */ = {isa = PBXBuildFile; fileRef = 256BD83D201ACD9100D98681 /* DOGPlayerWidget.m */; };
 		256BD842201AD3DF00D98681 /* DOGPlayerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 256BD841201AD3DF00D98681 /* DOGPlayerItem.m */; };
@@ -61,6 +62,8 @@
 		252E9A0320185A6500185692 /* DOGPlayerSliderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DOGPlayerSliderView.m; sourceTree = "<group>"; };
 		252E9A0620187F2200185692 /* DOGTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DOGTool.h; sourceTree = "<group>"; };
 		252E9A0720187F2200185692 /* DOGTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DOGTool.m; sourceTree = "<group>"; };
+		2545E6922041281100C7200C /* DOGPlayerPlayButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DOGPlayerPlayButton.h; sourceTree = "<group>"; };
+		2545E6932041281100C7200C /* DOGPlayerPlayButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DOGPlayerPlayButton.m; sourceTree = "<group>"; };
 		256BD839201AC82900D98681 /* DOGPlayerControlView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DOGPlayerControlView.h; sourceTree = "<group>"; };
 		256BD83A201AC82900D98681 /* DOGPlayerControlView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DOGPlayerControlView.m; sourceTree = "<group>"; };
 		256BD83C201ACD9100D98681 /* DOGPlayerWidget.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DOGPlayerWidget.h; sourceTree = "<group>"; };
@@ -308,6 +311,8 @@
 			children = (
 				A5F618A7203273BE003CADE2 /* DOGPlayerLoadingView.h */,
 				A5F618A8203273BE003CADE2 /* DOGPlayerLoadingView.m */,
+				2545E6922041281100C7200C /* DOGPlayerPlayButton.h */,
+				2545E6932041281100C7200C /* DOGPlayerPlayButton.m */,
 			);
 			path = DOGPlayerDisplayView;
 			sourceTree = "<group>";
@@ -470,6 +475,7 @@
 				256BD83B201AC82900D98681 /* DOGPlayerControlView.m in Sources */,
 				252E9A0820187F2200185692 /* DOGTool.m in Sources */,
 				A5B2966F201464AE008C5633 /* UIView+DOG.m in Sources */,
+				2545E6942041281100C7200C /* DOGPlayerPlayButton.m in Sources */,
 				252E9A0420185A6500185692 /* DOGPlayerSliderView.m in Sources */,
 				256BD83E201ACD9100D98681 /* DOGPlayerWidget.m in Sources */,
 				3D26D9132013433B003CF82B /* main.m in Sources */,
