@@ -8,31 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol DOGPlayerViewProtocol <NSObject>
-
-/**
- set video URL
-
- @param url URL
- @param image UIImage
- */
-- (void)configPlayerURL:(NSURL *_Nonnull)url
-         placeHoldImage:(UIImage *_Nullable)image;
-
-/**
- play a video at point time, finished value will turn to YES after completion
-
- @param second NSTimeInterval
- @param completionHandler finished / YES represet it's over
- */
-- (void)configPlayerPoint:(NSTimeInterval)second
-         completionHandler:(void (^_Nullable)(BOOL finished))completionHandler;
-
-@end
-
 /**
  play status
-
+ 
  - DOGPlayerViewStatusUnknown: unknown
  - DOGPlayerViewStatusReadyToPlay: player ready to play video
  - DOGPlayerViewStatusFailed: play video failed
@@ -68,7 +46,7 @@ typedef NS_ENUM(NSInteger, DOGPlayerViewStatus) {
 
 /**
  playerView progress changed
-
+ 
  @param playerView DOGPlayerView
  @param progress changed value
  @param totalTime video total time
@@ -82,7 +60,7 @@ typedef NS_ENUM(NSInteger, DOGPlayerViewStatus) {
 
 /**
  playerView buffer progress changed
-
+ 
  @param playerView DOGPlayerView
  @param progress changed value
  @param totalTime video total time
@@ -95,10 +73,45 @@ bufferProgressChanged:(CGFloat)progress
 
 /**
  when player buffer is empty, playerView loading duration
-
+ 
  @return loading duration
  */
 - (NSTimeInterval)playerViewDealPlaybackBufferEmptyDuration;
 
+
+@end
+
+@protocol DOGPlayerViewProtocol <NSObject>
+
+@property (nonatomic, weak) id <DOGPlayerViewDelegate> delegate;
+
+/**
+ set video URL
+
+ @param url URL
+ @param image UIImage
+ */
+- (void)configPlayerURL:(NSURL *_Nonnull)url
+         placeHoldImage:(UIImage *_Nullable)image;
+
+/**
+ play a video at point time, finished value will turn to YES after completion
+
+ @param second NSTimeInterval
+ @param completionHandler finished / YES represet it's over
+ */
+- (void)configPlayerPoint:(NSTimeInterval)second
+         completionHandler:(void (^_Nullable)(BOOL finished))completionHandler;
+
+
+/**
+ video play
+ */
+- (void)play;
+
+/**
+ video pause
+ */
+- (void)pause;
 
 @end

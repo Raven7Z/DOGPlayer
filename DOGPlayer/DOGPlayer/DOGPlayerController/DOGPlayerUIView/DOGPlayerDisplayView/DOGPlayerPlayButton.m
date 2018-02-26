@@ -10,9 +10,12 @@
 
 @implementation DOGPlayerPlayButton
 
-+ (DOGPlayerPlayButton *)buttonWithType:(UIButtonType)buttonType {
-    DOGPlayerPlayButton *button = [super buttonWithType:buttonType];
++ (DOGPlayerPlayButton *)dogPlayerPlayButtonWithType:(UIButtonType)buttonType {
     
+    DOGPlayerPlayButton *button = [super buttonWithType:buttonType];
+    button.backgroundColor = [UIColor clearColor];
+    [button setImage:[UIImage imageNamed:@"dog_stop"] forState:UIControlStateNormal];
+    [button setImage:[UIImage imageNamed:@"dog_play"] forState:UIControlStateSelected];
 
     return button;
 }

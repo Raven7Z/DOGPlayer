@@ -10,4 +10,12 @@
 
 @interface DOGPlayerPlayButton : UIButton
 
+/**
+ creates and returns a dogPlayerPlayButton of a specified UIButtonType
+
+ @param buttonType UIButtonType
+ @return DOGPlayerPlayButton item
+ */
++ (DOGPlayerPlayButton *)dogPlayerPlayButtonWithType:(UIButtonType)buttonType;
+
 @end

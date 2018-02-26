@@ -51,10 +51,40 @@
 
 #pragma mark - DOGPlayerProtocol
 - (void)play {
+    switch (_status) {
+        case DOGPlayerViewStatusPause:
+        case DOGPlayerViewStatusReadyToPlay:
+            self.status = DOGPlayerViewStatusPlaying;
+            break;
+        case DOGPlayerViewStatusPlaying:
+            break;
+        case DOGPlayerViewStatusBuffering:
+            break;
+        default:
+            self.status = DOGPlayerViewStatusPlaying;
+            break;
+    }
+    
     if (_player == nil) {
         return;
     }
     [_player play];
+}
+
+- (void)pause {
+    switch (_status) {
+        case DOGPlayerViewStatusPlaying:
+        case DOGPlayerViewStatusBuffering:
+        case DOGPlayerViewStatusReadyToPlay:
+            self.status = DOGPlayerViewStatusPause;
+            break;
+        case DOGPlayerViewStatusPause:
+            break;
+            
+        default:
+            break;
+    }
+    [_player pause];
 }
 
 #pragma mark - DOGPlayerViewProtocol
@@ -74,23 +104,38 @@
 
 - (void)configPlayerPoint:(NSTimeInterval)second completionHandler:(void (^)(BOOL))completionHandler {
     NSLog(@"sliderProgress = %f", second);
-    CGFloat totalDuration = CMTimeGetSeconds(_player.currentItem.duration);
-    CMTime startTime = CMTimeMakeWithSeconds(second * totalDuration, _playerItem.currentTime.timescale);
-    __weak typeof(self)weakSelf = self;
-    [_player seekToTime:startTime completionHandler:^(BOOL finished) {
-        if (weakSelf == nil) {
-            return ;
+    
+    if (_player.currentItem.status == AVPlayerItemStatusReadyToPlay) {
+        if (_status == DOGPlayerViewStatusPlaying) {
+            [_player pause];
         }
-        __strong __typeof__(weakSelf) strongSelf = weakSelf;
-        if (!strongSelf) {
-            return;
-        }
-        
-        if (finished) {
-            [strongSelf.player play];
-        }
-        completionHandler(finished);
-    }];
+        CGFloat totalDuration = CMTimeGetSeconds(_player.currentItem.duration);
+        CMTime startTime = CMTimeMakeWithSeconds(second * totalDuration, _playerItem.currentTime.timescale);
+        __weak typeof(self)weakSelf = self;
+        [_player seekToTime:startTime completionHandler:^(BOOL finished) {
+            if (completionHandler) {
+                completionHandler(finished);
+            }
+            if (weakSelf == nil) {
+                return ;
+            }
+            __strong __typeof__(weakSelf) strongSelf = weakSelf;
+            if (!strongSelf) {
+                return;
+            }
+            
+            if (!strongSelf.playerItem.isPlaybackLikelyToKeepUp) {
+                strongSelf.status = DOGPlayerViewStatusBuffering;
+            }
+            else {
+                strongSelf.status = DOGPlayerViewStatusPlaying;
+            }
+            
+            if (finished) {
+                [strongSelf.player play];
+            }
+        }];
+    }
 }
 
 #pragma mark - KVO

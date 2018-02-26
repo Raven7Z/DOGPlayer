@@ -15,5 +15,6 @@
 
 @property (nonatomic, readonly) DOGPlayerDunkerView *dunkerView;
 @property (nonatomic, weak) id <DOGPlayerSliderViewDelegate> delegate;
+@property (nonatomic, weak) id <DOGPlayerControlViewProtocol> controlViewDelegate;
 
 @end

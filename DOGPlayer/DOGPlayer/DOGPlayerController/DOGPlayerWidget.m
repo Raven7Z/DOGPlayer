@@ -20,9 +20,10 @@ static const CGFloat kLoadingDuration = 0.5;
 <
 DOGPlayerViewDelegate
 ,DOGPlayerSliderViewDelegate
+,DOGPlayerControlViewProtocol
 >
 
-@property (nonatomic, strong) DOGPlayerView *playerView;
+@property (nonatomic, strong) UIView <DOGPlayerViewProtocol> *playerView;
 @property (nonatomic, strong) DOGPlayerControlView *controlView;
 
 @property (nonatomic, assign) DOGPlayerSliderViewType sliderViewType;
@@ -109,6 +110,15 @@ bufferProgressChanged:(CGFloat)progress
     _controlView.dunkerView.currentBufferProgress = progress;
 }
 
+#pragma mark - DOGPlayerControlViewProtocol
+- (void)playerControlView:(DOGPlayerControlView *)controlView videoPlay:(BOOL)play {
+    if (play) {
+        [_playerView play];
+    } else {
+        [_playerView pause];
+    }
+}
+
 #pragma mark - DOGPlayerSliderViewDelegate
 - (void)playerSliderViewBegin:(DOGPlayerSliderView *)sliderView {
     
@@ -146,7 +156,7 @@ bufferProgressChanged:(CGFloat)progress
 }
 
 #pragma mark - property
-- (DOGPlayerView *)playerView {
+- (UIView<DOGPlayerViewProtocol> *)playerView {
     if (_playerView == nil) {
         _playerView = [[DOGPlayerView alloc] initWithFrame:self.bounds];
         _playerView.delegate = self;
@@ -158,6 +168,7 @@ bufferProgressChanged:(CGFloat)progress
     if (_controlView == nil) {
         _controlView = [[DOGPlayerControlView alloc] initWithFrame:self.bounds];
         _controlView.delegate = self;
+        _controlView.controlViewDelegate = self;
     }
     return _controlView;
 }

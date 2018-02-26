@@ -8,7 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
+@class DOGPlayerControlView;
+
 @protocol DOGPlayerControlViewProtocol <NSObject>
+
+/**
+ play button control video play or stop
+
+ @param controlView DOGPlayerControlView
+ @param play YES / play
+ */
+- (void)playerControlView:(DOGPlayerControlView *)controlView
+                videoPlay:(BOOL)play;
 
 @end
 
