@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		25014CED202447970005DBA1 /* libDOGReveal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 25014CEC2024474F0005DBA1 /* libDOGReveal.a */; };
+		2528CDF82045570100B58C38 /* DOGPlayerTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2528CDF72045570100B58C38 /* DOGPlayerTabBarController.m */; };
+		2528CDFB2045571E00B58C38 /* DOGPlayerMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2528CDFA2045571E00B58C38 /* DOGPlayerMainViewController.m */; };
 		252E9A0420185A6500185692 /* DOGPlayerSliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 252E9A0320185A6500185692 /* DOGPlayerSliderView.m */; };
 		252E9A0820187F2200185692 /* DOGTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 252E9A0720187F2200185692 /* DOGTool.m */; };
 		2545E6942041281100C7200C /* DOGPlayerPlayButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2545E6932041281100C7200C /* DOGPlayerPlayButton.m */; };
@@ -58,6 +60,10 @@
 
 /* Begin PBXFileReference section */
 		25014CE72024474E0005DBA1 /* DOGReveal.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DOGReveal.xcodeproj; path = DOGReveal/DOGReveal.xcodeproj; sourceTree = "<group>"; };
+		2528CDF62045570100B58C38 /* DOGPlayerTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DOGPlayerTabBarController.h; sourceTree = "<group>"; };
+		2528CDF72045570100B58C38 /* DOGPlayerTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DOGPlayerTabBarController.m; sourceTree = "<group>"; };
+		2528CDF92045571E00B58C38 /* DOGPlayerMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DOGPlayerMainViewController.h; sourceTree = "<group>"; };
+		2528CDFA2045571E00B58C38 /* DOGPlayerMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DOGPlayerMainViewController.m; sourceTree = "<group>"; };
 		252E9A0220185A6500185692 /* DOGPlayerSliderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DOGPlayerSliderView.h; sourceTree = "<group>"; };
 		252E9A0320185A6500185692 /* DOGPlayerSliderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DOGPlayerSliderView.m; sourceTree = "<group>"; };
 		252E9A0620187F2200185692 /* DOGTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DOGTool.h; sourceTree = "<group>"; };
@@ -189,6 +195,10 @@
 				3D26D93520134875003CF82B /* DOGPlayerController */,
 				3D26D9032013433B003CF82B /* AppDelegate.h */,
 				3D26D9042013433B003CF82B /* AppDelegate.m */,
+				2528CDF62045570100B58C38 /* DOGPlayerTabBarController.h */,
+				2528CDF72045570100B58C38 /* DOGPlayerTabBarController.m */,
+				2528CDF92045571E00B58C38 /* DOGPlayerMainViewController.h */,
+				2528CDFA2045571E00B58C38 /* DOGPlayerMainViewController.m */,
 				3D26D9062013433B003CF82B /* ViewController.h */,
 				3D26D9072013433B003CF82B /* ViewController.m */,
 				3D26D9092013433B003CF82B /* Main.storyboard */,
@@ -478,7 +488,9 @@
 				2545E6942041281100C7200C /* DOGPlayerPlayButton.m in Sources */,
 				252E9A0420185A6500185692 /* DOGPlayerSliderView.m in Sources */,
 				256BD83E201ACD9100D98681 /* DOGPlayerWidget.m in Sources */,
+				2528CDFB2045571E00B58C38 /* DOGPlayerMainViewController.m in Sources */,
 				3D26D9132013433B003CF82B /* main.m in Sources */,
+				2528CDF82045570100B58C38 /* DOGPlayerTabBarController.m in Sources */,
 				A5B2966C201462E5008C5633 /* UIColor+DOG.m in Sources */,
 				3D26D9052013433B003CF82B /* AppDelegate.m in Sources */,
 				257CBA9420160D7000AA75A5 /* DOGPlayerDunkerProgressView.m in Sources */,

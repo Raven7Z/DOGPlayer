@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 
+#import "DOGPlayerTabBarController.h"
+
 @interface AppDelegate ()
 
 @end
@@ -17,6 +19,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    DOGPlayerTabBarController *vc = [[DOGPlayerTabBarController alloc] init];
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.rootViewController = vc;
+    
     return YES;
 }
 
