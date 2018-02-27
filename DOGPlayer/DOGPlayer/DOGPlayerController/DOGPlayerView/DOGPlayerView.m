@@ -224,7 +224,7 @@
 }
 
 - (void)dealPlaybackLikelyToKeepUp {
-    if (_player.currentItem.playbackLikelyToKeepUp && _status == DOGPlayerViewStatusBuffering) {
+    if (_player.currentItem.isPlaybackLikelyToKeepUp && _status == DOGPlayerViewStatusBuffering) {
         self.status = DOGPlayerViewStatusPlaying;
     }
 }
