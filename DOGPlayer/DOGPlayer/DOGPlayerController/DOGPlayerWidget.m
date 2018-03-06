@@ -45,6 +45,7 @@ DOGPlayerViewDelegate
         }
         NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
         [notificationCenter addObserver:self selector:@selector(handleDeviceOrientationDidChangeNotification:) name:UIDeviceOrientationDidChangeNotification object:nil];
+        [notificationCenter addObserver:self selector:@selector(handleStatusBarOrientationDidChangeNotification:) name:UIApplicationDidChangeStatusBarOrientationNotification object:nil];
     }
     return self;
 }
@@ -72,48 +73,57 @@ DOGPlayerViewDelegate
 }
 
 - (void)handleRotationEvent:(UIDeviceOrientation)deviceOrientation {
-    CGRect crossFrame = [_delegate configPlayerWidgetFrame:self];
+    UIInterfaceOrientation statusBarOrietation = UIInterfaceOrientationPortrait;
     
-    
-    NSLog(@"");
+    switch (deviceOrientation) {
+        case UIDeviceOrientationLandscapeRight: {
+            [UIApplication sharedApplication].statusBarHidden = NO;
+            [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+            statusBarOrietation = UIInterfaceOrientationLandscapeLeft;
+        }
+            break;
+        case UIDeviceOrientationLandscapeLeft: {
+            [UIApplication sharedApplication].statusBarHidden = NO;
+            [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+            statusBarOrietation = UIInterfaceOrientationLandscapeRight;
+        }
+            break;
+        default:
+            break;
+    }
+    [[UIApplication sharedApplication] setStatusBarOrientation:statusBarOrietation animated:YES];
 }
 
 #pragma mark - Notification
 - (void)handleDeviceOrientationDidChangeNotification:(NSNotification *)notif {
     
-    NSString *text = nil;
     UIDeviceOrientation deviceOrientation = [UIDevice currentDevice].orientation;
     switch (deviceOrientation) {
         case UIDeviceOrientationFaceUp:
-            text = @"UIDeviceOrientationFaceUp";
-            break;
         case UIDeviceOrientationFaceDown:
-            text = @"UIDeviceOrientationFaceDown";
-            break;
         case UIDeviceOrientationUnknown:
-            text = @"UIDeviceOrientationUnknown";
+        case UIDeviceOrientationPortraitUpsideDown:
             break;
         case UIDeviceOrientationLandscapeLeft: {
-            text = @"UIDeviceOrientationLandscapeLeft";
             [self handleRotationEvent:UIDeviceOrientationLandscapeLeft];
         }
             break;
-        case UIDeviceOrientationLandscapeRight:
-            text = @"UIDeviceOrientationLandscapeRight";
+        case UIDeviceOrientationLandscapeRight: {
             [self handleRotationEvent:UIDeviceOrientationLandscapeRight];
+        }
             break;
-        case UIDeviceOrientationPortrait:
-            text = @"UIDeviceOrientationPortrait";
+        case UIDeviceOrientationPortrait: {
             [self handleRotationEvent:UIDeviceOrientationPortrait];
+        }
             break;
-        case UIDeviceOrientationPortraitUpsideDown:
-            text = @"UIDeviceOrientationPortraitUpsideDown";
-            break;
+        
         default:
-            text = @"can't check";
             break;
     }
-    NSLog(@"%@", text);
+}
+
+- (void)handleStatusBarOrientationDidChangeNotification:(NSNotification *)notif {
+    NSLog(@"1");
 }
 
 #pragma mark - Delegate

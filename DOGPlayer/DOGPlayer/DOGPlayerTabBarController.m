@@ -20,6 +20,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+    
     ViewController *main = [[ViewController alloc] init];
     main.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Main" image:nil tag:0];
     
