@@ -60,6 +60,7 @@
 
 /* Begin PBXFileReference section */
 		25014CE72024474E0005DBA1 /* DOGReveal.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DOGReveal.xcodeproj; path = DOGReveal/DOGReveal.xcodeproj; sourceTree = "<group>"; };
+		251E42D2204E6A2F003860D2 /* DOGPlayerWidgetProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DOGPlayerWidgetProtocol.h; sourceTree = "<group>"; };
 		2528CDF62045570100B58C38 /* DOGPlayerTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DOGPlayerTabBarController.h; sourceTree = "<group>"; };
 		2528CDF72045570100B58C38 /* DOGPlayerTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DOGPlayerTabBarController.m; sourceTree = "<group>"; };
 		2528CDF92045571E00B58C38 /* DOGPlayerMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DOGPlayerMainViewController.h; sourceTree = "<group>"; };
@@ -231,6 +232,7 @@
 		3D26D93520134875003CF82B /* DOGPlayerController */ = {
 			isa = PBXGroup;
 			children = (
+				251E42D2204E6A2F003860D2 /* DOGPlayerWidgetProtocol.h */,
 				256BD83C201ACD9100D98681 /* DOGPlayerWidget.h */,
 				256BD83D201ACD9100D98681 /* DOGPlayerWidget.m */,
 				256BD83F201AD2C700D98681 /* DOGPlayerItem */,

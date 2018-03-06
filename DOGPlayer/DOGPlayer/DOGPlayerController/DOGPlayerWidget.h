@@ -9,8 +9,14 @@
 #import <UIKit/UIKit.h>
 
 #import "DOGPlayerItem.h"
+#import "DOGPlayerWidgetProtocol.h"
 
 @interface DOGPlayerWidget : UIView
+<
+DOGPlayerWidgetProtocol
+>
+
+@property (nonatomic, weak) id <DOGPlayerWidgetProtocol>delegate;
 
 /**
  start play

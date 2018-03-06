@@ -40,8 +40,21 @@ DOGPlayerViewDelegate
     if (self) {
         [self addSubview:self.playerView];
         [self addSubview:self.controlView];
+        if (![UIDevice currentDevice].generatesDeviceOrientationNotifications) {
+            [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+        }
+        NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+        [notificationCenter addObserver:self selector:@selector(handleDeviceOrientationDidChangeNotification:) name:UIDeviceOrientationDidChangeNotification object:nil];
     }
     return self;
+}
+
+- (void)layoutSubviews {
+    
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark - public method
@@ -56,6 +69,51 @@ DOGPlayerViewDelegate
 
 - (void)removeLoadingView {
     [self.loadingView removeFromSuperview];
+}
+
+- (void)handleRotationEvent:(UIDeviceOrientation)deviceOrientation {
+    CGRect crossFrame = [_delegate configPlayerWidgetFrame:self];
+    
+    
+    NSLog(@"");
+}
+
+#pragma mark - Notification
+- (void)handleDeviceOrientationDidChangeNotification:(NSNotification *)notif {
+    
+    NSString *text = nil;
+    UIDeviceOrientation deviceOrientation = [UIDevice currentDevice].orientation;
+    switch (deviceOrientation) {
+        case UIDeviceOrientationFaceUp:
+            text = @"UIDeviceOrientationFaceUp";
+            break;
+        case UIDeviceOrientationFaceDown:
+            text = @"UIDeviceOrientationFaceDown";
+            break;
+        case UIDeviceOrientationUnknown:
+            text = @"UIDeviceOrientationUnknown";
+            break;
+        case UIDeviceOrientationLandscapeLeft: {
+            text = @"UIDeviceOrientationLandscapeLeft";
+            [self handleRotationEvent:UIDeviceOrientationLandscapeLeft];
+        }
+            break;
+        case UIDeviceOrientationLandscapeRight:
+            text = @"UIDeviceOrientationLandscapeRight";
+            [self handleRotationEvent:UIDeviceOrientationLandscapeRight];
+            break;
+        case UIDeviceOrientationPortrait:
+            text = @"UIDeviceOrientationPortrait";
+            [self handleRotationEvent:UIDeviceOrientationPortrait];
+            break;
+        case UIDeviceOrientationPortraitUpsideDown:
+            text = @"UIDeviceOrientationPortraitUpsideDown";
+            break;
+        default:
+            text = @"can't check";
+            break;
+    }
+    NSLog(@"%@", text);
 }
 
 #pragma mark - Delegate
