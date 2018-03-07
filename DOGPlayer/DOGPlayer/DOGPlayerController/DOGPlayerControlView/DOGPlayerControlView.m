@@ -42,6 +42,13 @@ DOGPlayerSliderViewDelegate
     return self;
 }
 
+- (void)layoutSubviews {
+    
+    CGFloat y = self.dog_Height -kDunkerViewHeight;
+    _dunkerView.frame = CGRectMake(0, y, self.dog_Width, kDunkerViewHeight);
+    _playButton.center = self.center;
+}
+
 #pragma mark - DOGPlayerSliderViewDelegate
 - (void)playerSliderViewBegin:(DOGPlayerSliderView *)sliderView {
     if (_delegate != nil && [_delegate conformsToProtocol:@protocol(DOGPlayerSliderViewDelegate)] && [_delegate respondsToSelector:@selector(playerSliderViewBegin:)]) {

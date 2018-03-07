@@ -49,6 +49,42 @@ static const NSInteger kSliderViewHeight = 20;
     return self;
 }
 
+- (void)dealloc {
+    _currentTimeLabel = nil;
+    _fullScreenButton = nil;
+    _totalTimeLabel = nil;
+    _sliderView = nil;
+}
+
+- (void)layoutSubviews {
+    CGSize timeLabelSize = [DOGTool dog_CalculateSizeOfNormalText:@"00:00" font:13 width:self.dog_Width fontWithName:nil];
+    CGFloat currentTimeLabel_x = kCurrentTimeLabelLeftMargin;
+    CGFloat currentTimeLabel_y = self.dog_Height -kCurrentTimeLabelBottomMargin -timeLabelSize.height;
+    CGFloat currentTimeLabel_width = timeLabelSize.width;
+    CGFloat currentTimeLabel_height = timeLabelSize.height;
+    _currentTimeLabel.frame = CGRectMake(currentTimeLabel_x, currentTimeLabel_y, currentTimeLabel_width, currentTimeLabel_height);
+    
+    CGFloat sliderView_x = _currentTimeLabel.dog_Right;
+    CGFloat sliderView_y = 0;
+    CGFloat sliderView_height = kSliderViewHeight;
+    CGFloat sliderView_width = self.dog_Width -_currentTimeLabel.dog_Right-_totalTimeLabel.dog_Width -20 -_fullScreenButton.dog_Width -17;
+    _sliderView.frame = CGRectMake(sliderView_x, sliderView_y, sliderView_width, sliderView_height);
+    _sliderView.dog_CenterY = _currentTimeLabel.dog_CenterY;
+    
+    CGFloat fullScreenButton_x = self.dog_Width -kFullScreenButtonWidth -17;
+    CGFloat fullScreenButton_y = _currentTimeLabel.dog_CenterY - kFullScreenButtonWidth /2;
+    CGFloat fullScreenButton_width = kFullScreenButtonWidth;
+    CGFloat fullScreenButton_height = kFullScreenButtonWidth;
+    _fullScreenButton.frame = CGRectMake(fullScreenButton_x, fullScreenButton_y, fullScreenButton_width, fullScreenButton_height);
+    
+    CGSize totalTimeLabelSize = [DOGTool dog_CalculateSizeOfNormalText:@"00:00" font:13 width:self.dog_Width fontWithName:nil];
+    CGFloat totalTimeLabel_x = _fullScreenButton.dog_Left -20 -totalTimeLabelSize.width;
+    CGFloat totalTimeLabel_y = _currentTimeLabel.dog_Top;
+    CGFloat totalTimeLabel_width = totalTimeLabelSize.width;
+    CGFloat totalTimeLabel_height = totalTimeLabelSize.height;
+    _totalTimeLabel.frame = CGRectMake(totalTimeLabel_x, totalTimeLabel_y, totalTimeLabel_width, totalTimeLabel_height);
+}
+
 #pragma mark - target
 - (void)fullScreenButtonClickEvent:(UIButton *)sender {
     NSLog(@"full screen button");

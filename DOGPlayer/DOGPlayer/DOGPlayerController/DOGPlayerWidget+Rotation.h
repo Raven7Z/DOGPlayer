@@ -10,4 +10,6 @@
 
 @interface DOGPlayerWidget (Rotation)
 
+- (void)tabBarHidden:(BOOL)hidden;
+
 @end

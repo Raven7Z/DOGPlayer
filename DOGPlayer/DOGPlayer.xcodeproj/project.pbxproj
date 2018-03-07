@@ -18,6 +18,7 @@
 		256BD83E201ACD9100D98681 /* DOGPlayerWidget.m in Sources */ = {isa = PBXBuildFile; fileRef = 256BD83D201ACD9100D98681 /* DOGPlayerWidget.m */; };
 		256BD842201AD3DF00D98681 /* DOGPlayerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 256BD841201AD3DF00D98681 /* DOGPlayerItem.m */; };
 		257CBA9420160D7000AA75A5 /* DOGPlayerDunkerProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 257CBA9320160D7000AA75A5 /* DOGPlayerDunkerProgressView.m */; };
+		25A3F916204FB32B0095D901 /* DOGPlayerConfigInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A3F915204FB32B0095D901 /* DOGPlayerConfigInstance.m */; };
 		3D26D9052013433B003CF82B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D26D9042013433B003CF82B /* AppDelegate.m */; };
 		3D26D9082013433B003CF82B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D26D9072013433B003CF82B /* ViewController.m */; };
 		3D26D90B2013433B003CF82B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D26D9092013433B003CF82B /* Main.storyboard */; };
@@ -82,6 +83,8 @@
 		256BD841201AD3DF00D98681 /* DOGPlayerItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DOGPlayerItem.m; sourceTree = "<group>"; };
 		257CBA9220160D7000AA75A5 /* DOGPlayerDunkerProgressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DOGPlayerDunkerProgressView.h; sourceTree = "<group>"; };
 		257CBA9320160D7000AA75A5 /* DOGPlayerDunkerProgressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DOGPlayerDunkerProgressView.m; sourceTree = "<group>"; };
+		25A3F914204FB32B0095D901 /* DOGPlayerConfigInstance.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DOGPlayerConfigInstance.h; sourceTree = "<group>"; };
+		25A3F915204FB32B0095D901 /* DOGPlayerConfigInstance.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DOGPlayerConfigInstance.m; sourceTree = "<group>"; };
 		3D26D9002013433B003CF82B /* DOGPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DOGPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D26D9032013433B003CF82B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3D26D9042013433B003CF82B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -170,6 +173,15 @@
 			path = DOGPlayerItem;
 			sourceTree = "<group>";
 		};
+		25A3F912204FB3020095D901 /* DOGPlayerService */ = {
+			isa = PBXGroup;
+			children = (
+				25A3F914204FB32B0095D901 /* DOGPlayerConfigInstance.h */,
+				25A3F915204FB32B0095D901 /* DOGPlayerConfigInstance.m */,
+			);
+			path = DOGPlayerService;
+			sourceTree = "<group>";
+		};
 		3D26D8F72013433B003CF82B = {
 			isa = PBXGroup;
 			children = (
@@ -195,6 +207,7 @@
 		3D26D9022013433B003CF82B /* DOGPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				25A3F912204FB3020095D901 /* DOGPlayerService */,
 				A5B2966820146291008C5633 /* DOGFoundation */,
 				3D26D93520134875003CF82B /* DOGPlayerController */,
 				3D26D9032013433B003CF82B /* AppDelegate.h */,
@@ -485,6 +498,7 @@
 			files = (
 				3D26D9082013433B003CF82B /* ViewController.m in Sources */,
 				A5F618A9203273BE003CADE2 /* DOGPlayerLoadingView.m in Sources */,
+				25A3F916204FB32B0095D901 /* DOGPlayerConfigInstance.m in Sources */,
 				A5B2966320145C11008C5633 /* DOGPlayer.m in Sources */,
 				A5B2966720145FBB008C5633 /* DOGPlayerView.m in Sources */,
 				9B92441C2015D4DA009F6F65 /* DOGPlayerDunkerView.m in Sources */,

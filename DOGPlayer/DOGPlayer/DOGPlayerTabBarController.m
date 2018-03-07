@@ -11,6 +11,8 @@
 #import "DOGPlayerMainViewController.h"
 #import "ViewController.h"
 
+#import "DOGPlayerConfigInstance.h"
+
 @interface DOGPlayerTabBarController ()
 
 @end
@@ -29,6 +31,8 @@
     second.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Second" image:nil tag:0];
     
     self.viewControllers = @[main, second];
+    
+    [DOGPlayerConfigInstance shareInstance].rootController = self;
 }
 
 - (void)didReceiveMemoryWarning {

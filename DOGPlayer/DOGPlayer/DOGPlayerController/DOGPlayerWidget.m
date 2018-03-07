@@ -7,6 +7,7 @@
 //
 
 #import "DOGPlayerWidget.h"
+#import "DOGPlayerWidget+Rotation.h"
 
 #import "DOGPlayerView.h"
 #import "DOGPlayerControlView.h"
@@ -14,6 +15,9 @@
 
 #import "UIView+DOG.h"
 
+
+#define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
+#define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
 static const CGFloat kLoadingDuration = 0.5;
 
 @interface DOGPlayerWidget ()
@@ -63,37 +67,6 @@ DOGPlayerViewDelegate
     [self.playerView configPlayerURL:[NSURL URLWithString:item.videoURL] placeHoldImage:nil];
 }
 
-#pragma mark - privater method
-- (void)showLoadingView {
-    [self addSubview:self.loadingView];
-}
-
-- (void)removeLoadingView {
-    [self.loadingView removeFromSuperview];
-}
-
-- (void)handleRotationEvent:(UIDeviceOrientation)deviceOrientation {
-    UIInterfaceOrientation statusBarOrietation = UIInterfaceOrientationPortrait;
-    
-    switch (deviceOrientation) {
-        case UIDeviceOrientationLandscapeRight: {
-            [UIApplication sharedApplication].statusBarHidden = NO;
-            [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
-            statusBarOrietation = UIInterfaceOrientationLandscapeLeft;
-        }
-            break;
-        case UIDeviceOrientationLandscapeLeft: {
-            [UIApplication sharedApplication].statusBarHidden = NO;
-            [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
-            statusBarOrietation = UIInterfaceOrientationLandscapeRight;
-        }
-            break;
-        default:
-            break;
-    }
-    [[UIApplication sharedApplication] setStatusBarOrientation:statusBarOrietation animated:YES];
-}
-
 #pragma mark - Notification
 - (void)handleDeviceOrientationDidChangeNotification:(NSNotification *)notif {
     
@@ -123,7 +96,20 @@ DOGPlayerViewDelegate
 }
 
 - (void)handleStatusBarOrientationDidChangeNotification:(NSNotification *)notif {
-    NSLog(@"1");
+    
+    UIInterfaceOrientation statusBarOrientation = [[UIApplication sharedApplication] statusBarOrientation];
+    if (UIInterfaceOrientationIsPortrait(statusBarOrientation)) {
+        
+        self.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH * 3/4);
+        [self tabBarHidden:NO];
+        
+    } else {
+        
+        self.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+        [self tabBarHidden:YES];
+    }
+    self.playerView.frame = self.frame;
+    self.controlView.frame = self.frame;
 }
 
 #pragma mark - Delegate
@@ -221,6 +207,37 @@ bufferProgressChanged:(CGFloat)progress
 
 - (CGFloat)playerViewDealPlaybackBufferEmptyDuration {
     return kLoadingDuration;
+}
+
+#pragma mark - privater method
+- (void)showLoadingView {
+    [self addSubview:self.loadingView];
+}
+
+- (void)removeLoadingView {
+    [self.loadingView removeFromSuperview];
+}
+
+- (void)handleRotationEvent:(UIDeviceOrientation)deviceOrientation {
+    UIInterfaceOrientation statusBarOrietation = UIInterfaceOrientationPortrait;
+    
+    switch (deviceOrientation) {
+        case UIDeviceOrientationLandscapeRight: {
+            [UIApplication sharedApplication].statusBarHidden = NO;
+            [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+            statusBarOrietation = UIInterfaceOrientationLandscapeLeft;
+        }
+            break;
+        case UIDeviceOrientationLandscapeLeft: {
+            [UIApplication sharedApplication].statusBarHidden = NO;
+            [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+            statusBarOrietation = UIInterfaceOrientationLandscapeRight;
+        }
+            break;
+        default:
+            break;
+    }
+    [[UIApplication sharedApplication] setStatusBarOrientation:statusBarOrietation animated:YES];
 }
 
 #pragma mark - property

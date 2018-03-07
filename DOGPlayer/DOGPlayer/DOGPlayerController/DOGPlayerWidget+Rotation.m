@@ -8,6 +8,12 @@
 
 #import "DOGPlayerWidget+Rotation.h"
 
+#import "DOGPlayerConfigInstance.h"
+
 @implementation DOGPlayerWidget (Rotation)
+
+- (void)tabBarHidden:(BOOL)hidden {
+    [DOGPlayerConfigInstance shareInstance].rootController.tabBar.hidden = hidden;
+}
 
 @end

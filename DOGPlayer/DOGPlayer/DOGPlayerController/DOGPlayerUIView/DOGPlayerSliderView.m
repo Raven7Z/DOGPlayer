@@ -61,6 +61,25 @@ static const CGFloat kSliderButtonAnimationDuration = 0.2;
     return self;
 }
 
+- (void)dealloc {
+    _currentBufferProgressView = nil;
+    _currentSliderProgressView = nil;
+    _sliderButton = nil;
+}
+
+- (void)layoutSubviews {
+    NSInteger currentBufferProgressView_x = 8;
+    NSInteger currentBufferProgressView_width = self.dog_Width -16;
+    NSInteger currentBufferProgressView_y = (self.dog_Height -kProgressViewHeight) /2;
+    _currentBufferProgressView.frame = CGRectMake(currentBufferProgressView_x, currentBufferProgressView_y, currentBufferProgressView_width, kProgressViewHeight);
+    
+    _currentSliderProgressView.frame = CGRectMake(0, 0, _currentBufferProgressView.dog_Width, kProgressViewHeight);
+    
+    CGFloat sliderButton_x = kSliderButtonNormalWidth /2 +_currentBufferProgressView.dog_Left;
+    CGFloat sliderButton_y = (kSliderButtonNormalHeight -self.dog_Height) /2;
+    _sliderButton.frame = CGRectMake(sliderButton_x, -sliderButton_y, kSliderButtonNormalWidth, kSliderButtonNormalHeight);
+}
+
 #pragma mark - target
 #pragma mark - Slider Action
 
@@ -208,9 +227,9 @@ static const CGFloat kSliderButtonAnimationDuration = 0.2;
 - (UIProgressView *)currentBufferProgressView {
     if (_currentBufferProgressView == nil) {
         NSInteger x = 8;
+        NSInteger y = (self.dog_Height -kProgressViewHeight) /2;
         NSInteger width = self.dog_Width -16;
-        _currentBufferProgressView = [[UIProgressView alloc] initWithFrame:CGRectMake(x, 0, width, kProgressViewHeight)];
-        _currentBufferProgressView.dog_CenterY = self.dog_CenterY;
+        _currentBufferProgressView = [[UIProgressView alloc] initWithFrame:CGRectMake(x, y, width, kProgressViewHeight)];
         _currentBufferProgressView.progressTintColor = [UIColor dog_ColorWithHex:0xf5f5f5];
         _currentBufferProgressView.trackTintColor = [UIColor dog_ColorWithHex:0xffffff alpha:0.6];
         _currentBufferProgressView.layer.masksToBounds = YES;
@@ -237,7 +256,7 @@ static const CGFloat kSliderButtonAnimationDuration = 0.2;
     if (_sliderButton == nil) {
         _sliderButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _sliderButton.backgroundColor = [UIColor dog_ColorWithHex:0xffffff];
-        CGFloat x = -kSliderButtonNormalWidth /2 +_currentBufferProgressView.dog_Left;
+        CGFloat x = kSliderButtonNormalWidth /2 +_currentBufferProgressView.dog_Left;
         CGFloat y = (kSliderButtonNormalHeight -self.dog_Height) /2;
         _sliderButton.frame = CGRectMake(x, -y, kSliderButtonNormalWidth, kSliderButtonNormalHeight);
         _sliderButton.layer.masksToBounds = YES;
