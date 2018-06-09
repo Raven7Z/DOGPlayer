@@ -90,7 +90,7 @@ static const CGFloat kSliderButtonAnimationDuration = 0.2;
  */
 - (void)sliderBegin:(UIButton *)sender {
     
-    [self sliderButtonExtensionAnimation:sender];
+//    [self sliderButtonExtensionAnimation:sender];
     self.type = DOGPlayerSliderViewBeginType;
     if (_delegate != nil && [_delegate conformsToProtocol:@protocol(DOGPlayerSliderViewDelegate)] && [_delegate respondsToSelector:@selector(playerSliderViewBegin:)]) {
         [_delegate playerSliderViewBegin:self];
@@ -106,7 +106,7 @@ static const CGFloat kSliderButtonAnimationDuration = 0.2;
 - (void)sliderDrag:(UIButton *)sender
          withEvent:(UIEvent *)event {
     
-    [self sliderButtonExtensionAnimation:sender];
+//    [self sliderButtonExtensionAnimation:sender];
     self.autoMoving = YES;
     self.type = DOGPlayerSliderViewDragType;
     
@@ -128,8 +128,7 @@ static const CGFloat kSliderButtonAnimationDuration = 0.2;
  @param sender UIButton
  */
 - (void)sliderEnd:(UIButton *)sender {
-    
-    [self sliderButtonShrinkAnimation:sender];
+//    [self sliderButtonShrinkAnimation:sender];
     self.type = DOGPlayerSliderViewCancleType;
     if (_delegate != nil && [_delegate conformsToProtocol:@protocol(DOGPlayerSliderViewDelegate)] && [_delegate respondsToSelector:@selector(playerSliderViewCancle:)]) {
         [_delegate playerSliderViewCancle:self];

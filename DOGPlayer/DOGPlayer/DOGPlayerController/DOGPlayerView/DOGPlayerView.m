@@ -49,6 +49,10 @@
     return self;
 }
 
+- (void)layoutSubviews {
+    _playerLayer.frame = self.bounds;
+}
+
 #pragma mark - DOGPlayerProtocol
 - (void)play {
     switch (_status) {
