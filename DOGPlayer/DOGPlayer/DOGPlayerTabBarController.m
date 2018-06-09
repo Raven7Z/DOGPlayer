@@ -9,7 +9,7 @@
 #import "DOGPlayerTabBarController.h"
 
 #import "DOGPlayerMainViewController.h"
-#import "ViewController.h"
+#import "DOGPlayerOtherViewController.h"
 
 #import "DOGPlayerConfigInstance.h"
 
@@ -24,30 +24,18 @@
     
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     
-    ViewController *main = [[ViewController alloc] init];
-    main.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Main" image:nil tag:0];
+    DOGPlayerMainViewController *main = [[DOGPlayerMainViewController alloc] init];
+    UINavigationController *mainNav = [[UINavigationController alloc] initWithRootViewController:main];
+    mainNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Main" image:nil tag:0];
     
-    DOGPlayerMainViewController *second = [[DOGPlayerMainViewController alloc] init];
-    second.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Second" image:nil tag:0];
     
-    self.viewControllers = @[main, second];
+    DOGPlayerOtherViewController *other = [[DOGPlayerOtherViewController alloc] init];
+    UINavigationController *otherNav = [[UINavigationController alloc] initWithRootViewController:other];
+    otherNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Other" image:nil tag:0];
+    
+    self.viewControllers = @[mainNav, otherNav];
     
     [DOGPlayerConfigInstance shareInstance].rootController = self;
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

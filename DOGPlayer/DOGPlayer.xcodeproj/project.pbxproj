@@ -20,7 +20,6 @@
 		257CBA9420160D7000AA75A5 /* DOGPlayerDunkerProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 257CBA9320160D7000AA75A5 /* DOGPlayerDunkerProgressView.m */; };
 		25A3F916204FB32B0095D901 /* DOGPlayerConfigInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A3F915204FB32B0095D901 /* DOGPlayerConfigInstance.m */; };
 		3D26D9052013433B003CF82B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D26D9042013433B003CF82B /* AppDelegate.m */; };
-		3D26D9082013433B003CF82B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D26D9072013433B003CF82B /* ViewController.m */; };
 		3D26D90B2013433B003CF82B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D26D9092013433B003CF82B /* Main.storyboard */; };
 		3D26D90D2013433B003CF82B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D26D90C2013433B003CF82B /* Assets.xcassets */; };
 		3D26D9102013433B003CF82B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D26D90E2013433B003CF82B /* LaunchScreen.storyboard */; };
@@ -29,6 +28,8 @@
 		3D26D9282013433B003CF82B /* DOGPlayerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D26D9272013433B003CF82B /* DOGPlayerUITests.m */; };
 		9B92441C2015D4DA009F6F65 /* DOGPlayerDunkerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B92441B2015D4DA009F6F65 /* DOGPlayerDunkerView.m */; };
 		A50DF43820255E2C0049A0C0 /* UIControl+DOG.m in Sources */ = {isa = PBXBuildFile; fileRef = A50DF43720255E2C0049A0C0 /* UIControl+DOG.m */; };
+		A5805FC220CBC83D007C6EF0 /* DOGPlayerOtherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5805FC120CBC83D007C6EF0 /* DOGPlayerOtherViewController.m */; };
+		A5805FC620CBCBF9007C6EF0 /* DOGPlayerDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5805FC520CBCBF9007C6EF0 /* DOGPlayerDetailViewController.m */; };
 		A5B2966320145C11008C5633 /* DOGPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A5B2966220145C11008C5633 /* DOGPlayer.m */; };
 		A5B2966720145FBB008C5633 /* DOGPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A5B2966620145FBB008C5633 /* DOGPlayerView.m */; };
 		A5B2966C201462E5008C5633 /* UIColor+DOG.m in Sources */ = {isa = PBXBuildFile; fileRef = A5B2966B201462E5008C5633 /* UIColor+DOG.m */; };
@@ -88,8 +89,6 @@
 		3D26D9002013433B003CF82B /* DOGPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DOGPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D26D9032013433B003CF82B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3D26D9042013433B003CF82B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3D26D9062013433B003CF82B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		3D26D9072013433B003CF82B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		3D26D90A2013433B003CF82B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3D26D90C2013433B003CF82B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D26D90F2013433B003CF82B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -107,6 +106,10 @@
 		9B92441B2015D4DA009F6F65 /* DOGPlayerDunkerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DOGPlayerDunkerView.m; sourceTree = "<group>"; };
 		A50DF43620255E2C0049A0C0 /* UIControl+DOG.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIControl+DOG.h"; sourceTree = "<group>"; };
 		A50DF43720255E2C0049A0C0 /* UIControl+DOG.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIControl+DOG.m"; sourceTree = "<group>"; };
+		A5805FC020CBC83D007C6EF0 /* DOGPlayerOtherViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DOGPlayerOtherViewController.h; sourceTree = "<group>"; };
+		A5805FC120CBC83D007C6EF0 /* DOGPlayerOtherViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DOGPlayerOtherViewController.m; sourceTree = "<group>"; };
+		A5805FC420CBCBF9007C6EF0 /* DOGPlayerDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DOGPlayerDetailViewController.h; sourceTree = "<group>"; };
+		A5805FC520CBCBF9007C6EF0 /* DOGPlayerDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DOGPlayerDetailViewController.m; sourceTree = "<group>"; };
 		A5B2966020145BF2008C5633 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A5B2966120145C11008C5633 /* DOGPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DOGPlayer.h; sourceTree = "<group>"; };
 		A5B2966220145C11008C5633 /* DOGPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DOGPlayer.m; sourceTree = "<group>"; };
@@ -216,8 +219,10 @@
 				2528CDF72045570100B58C38 /* DOGPlayerTabBarController.m */,
 				2528CDF92045571E00B58C38 /* DOGPlayerMainViewController.h */,
 				2528CDFA2045571E00B58C38 /* DOGPlayerMainViewController.m */,
-				3D26D9062013433B003CF82B /* ViewController.h */,
-				3D26D9072013433B003CF82B /* ViewController.m */,
+				A5805FC020CBC83D007C6EF0 /* DOGPlayerOtherViewController.h */,
+				A5805FC120CBC83D007C6EF0 /* DOGPlayerOtherViewController.m */,
+				A5805FC420CBCBF9007C6EF0 /* DOGPlayerDetailViewController.h */,
+				A5805FC520CBCBF9007C6EF0 /* DOGPlayerDetailViewController.m */,
 				3D26D9092013433B003CF82B /* Main.storyboard */,
 				3D26D90C2013433B003CF82B /* Assets.xcassets */,
 				3D26D90E2013433B003CF82B /* LaunchScreen.storyboard */,
@@ -496,13 +501,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D26D9082013433B003CF82B /* ViewController.m in Sources */,
 				A5F618A9203273BE003CADE2 /* DOGPlayerLoadingView.m in Sources */,
 				25A3F916204FB32B0095D901 /* DOGPlayerConfigInstance.m in Sources */,
 				A5B2966320145C11008C5633 /* DOGPlayer.m in Sources */,
 				A5B2966720145FBB008C5633 /* DOGPlayerView.m in Sources */,
 				9B92441C2015D4DA009F6F65 /* DOGPlayerDunkerView.m in Sources */,
+				A5805FC620CBCBF9007C6EF0 /* DOGPlayerDetailViewController.m in Sources */,
 				256BD842201AD3DF00D98681 /* DOGPlayerItem.m in Sources */,
+				A5805FC220CBC83D007C6EF0 /* DOGPlayerOtherViewController.m in Sources */,
 				256BD83B201AC82900D98681 /* DOGPlayerControlView.m in Sources */,
 				252E9A0820187F2200185692 /* DOGTool.m in Sources */,
 				A5B2966F201464AE008C5633 /* UIView+DOG.m in Sources */,

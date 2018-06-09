@@ -8,7 +8,11 @@
 
 #import "DOGPlayerMainViewController.h"
 
+#import "DOGPlayerDetailViewController.h"
+
 @interface DOGPlayerMainViewController ()
+
+@property (nonatomic, strong) UIButton *pushVideoButton;
 
 @end
 
@@ -16,22 +20,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor greenColor];
+    self.view.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:self.pushVideoButton];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - action
+- (void)pushVideoButtonClicked:(UIButton *)sender {
+    DOGPlayerDetailViewController *viewController = [[DOGPlayerDetailViewController alloc] init];
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - property
+- (UIButton *)pushVideoButton {
+    if (_pushVideoButton == nil) {
+        _pushVideoButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        _pushVideoButton.backgroundColor = [UIColor greenColor];
+        _pushVideoButton.frame = CGRectMake(100, 100, 100, 40);
+        [_pushVideoButton addTarget:self action:@selector(pushVideoButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _pushVideoButton;
 }
-*/
 
 @end

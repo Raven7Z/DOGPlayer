@@ -12,6 +12,11 @@
 
 #import "DOGPlayer.h"
 
+static NSString *const kLoadedTimeRanges = @"loadedTimeRanges";
+static NSString *const kPlaybackBufferEmpty = @"playbackBufferEmpty";
+static NSString *const kPlaybackLikelyToKeepUp = @"playbackLikelyToKeepUp";
+static NSString *const kStatus = @"status";
+
 @interface DOGPlayerView ()
 
 @property (nonatomic, assign) DOGPlayerViewStatus status;
@@ -107,7 +112,6 @@
 }
 
 - (void)configPlayerPoint:(NSTimeInterval)second completionHandler:(void (^)(BOOL))completionHandler {
-    NSLog(@"sliderProgress = %f", second);
     
     if (_player.currentItem.status == AVPlayerItemStatusReadyToPlay) {
         if (_status == DOGPlayerViewStatusPlaying) {
@@ -148,14 +152,14 @@
                         change:(NSDictionary<NSKeyValueChangeKey,id> *)change
                        context:(void *)context {
     if (object == _player.currentItem) {
-        if ([keyPath isEqualToString:@"status"]) {
+        if ([keyPath isEqualToString:kStatus]) {
             AVPlayerStatus status = [[change objectForKey:@"new"] intValue];
             [self dealStatus:status];
-        } else if ([keyPath isEqualToString:@"loadedTimeRanges"]) {
+        } else if ([keyPath isEqualToString:kLoadedTimeRanges]) {
             [self dealLoadedTimeRanges];
-        } else if ([keyPath isEqualToString:@"playbackBufferEmpty"]) {
+        } else if ([keyPath isEqualToString:kPlaybackBufferEmpty]) {
             [self dealPlaybackBufferEmpty];
-        } else if ([keyPath isEqualToString:@"playbackLikelyToKeepUp"]) {
+        } else if ([keyPath isEqualToString:kPlaybackLikelyToKeepUp]) {
             [self dealPlaybackLikelyToKeepUp];
         }
     }
@@ -245,19 +249,19 @@
 - (void)setPlayerItem:(AVPlayerItem *)playerItem {
     
     if (_playerItem != nil) {
-        [_playerItem removeObserver:self forKeyPath:@"status"];
-        [_playerItem removeObserver:self forKeyPath:@"loadedTimeRanges"];
-        [_playerItem removeObserver:self forKeyPath:@"playbackBufferEmpty"];
-        [_playerItem removeObserver:self forKeyPath:@"playbackLikelyToKeepUp"];
+        [_playerItem removeObserver:self forKeyPath:kStatus];
+        [_playerItem removeObserver:self forKeyPath:kLoadedTimeRanges];
+        [_playerItem removeObserver:self forKeyPath:kPlaybackBufferEmpty];
+        [_playerItem removeObserver:self forKeyPath:kPlaybackLikelyToKeepUp];
         _playerItem = nil;
     }
     
     _playerItem = playerItem;
     
-    [_playerItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
-    [_playerItem addObserver:self forKeyPath:@"loadedTimeRanges" options:NSKeyValueObservingOptionNew context:nil];
-    [_playerItem addObserver:self forKeyPath:@"playbackBufferEmpty" options:NSKeyValueObservingOptionNew context:nil];
-    [_playerItem addObserver:self forKeyPath:@"playbackLikelyToKeepUp" options:NSKeyValueObservingOptionNew context:nil];
+    [_playerItem addObserver:self forKeyPath:kStatus options:NSKeyValueObservingOptionNew context:nil];
+    [_playerItem addObserver:self forKeyPath:kLoadedTimeRanges options:NSKeyValueObservingOptionNew context:nil];
+    [_playerItem addObserver:self forKeyPath:kPlaybackBufferEmpty options:NSKeyValueObservingOptionNew context:nil];
+    [_playerItem addObserver:self forKeyPath:kPlaybackLikelyToKeepUp options:NSKeyValueObservingOptionNew context:nil];
 }
 
 - (void)setPlayer:(DOGPlayer *)player {
