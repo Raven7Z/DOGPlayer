@@ -114,4 +114,9 @@ bufferProgressChanged:(CGFloat)progress
  */
 - (void)pause;
 
+/**
+ video stop
+ */
+- (void)stop;
+
 @end

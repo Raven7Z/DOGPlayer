@@ -67,6 +67,10 @@ DOGPlayerViewDelegate
     [self.playerView configPlayerURL:[NSURL URLWithString:item.videoURL] placeHoldImage:nil];
 }
 
+- (void)endPlay {
+    [_playerView stop];
+}
+
 #pragma mark - Notification
 - (void)handleDeviceOrientationDidChangeNotification:(NSNotification *)notif {
     
@@ -119,24 +123,18 @@ DOGPlayerViewDelegate
     
     switch (status) {
         case DOGPlayerViewStatusUnknown:
-            NSLog(@"DOGPlayerViewStatusUnknown");
             break;
         case DOGPlayerViewStatusReadyToPlay:
-            NSLog(@"DOGPlayerViewStatusReadyToPlay");
             break;
         case DOGPlayerViewStatusFailed:
-            NSLog(@"DOGPlayerViewStatusFailed");
             break;
         case DOGPlayerViewStatusBuffering:
-            NSLog(@"DOGPlayerViewStatusBuffering");
             [self showLoadingView];
             break;
         case DOGPlayerViewStatusPause:
-            NSLog(@"DOGPlayerViewStatusPause");
             break;
         case DOGPlayerViewStatusPlaying:
             [self removeLoadingView];
-            NSLog(@"DOGPlayerViewStatusPlaying");
             break;
             
         default:
@@ -176,13 +174,11 @@ bufferProgressChanged:(CGFloat)progress
 #pragma mark - DOGPlayerSliderViewDelegate
 - (void)playerSliderViewBegin:(DOGPlayerSliderView *)sliderView {
     
-    NSLog(@"begin");
     _sliderViewType = sliderView.type;
 }
 
 - (void)playerSliderViewCancle:(DOGPlayerSliderView *)sliderView {
     
-    NSLog(@"cancle");
     _sliderViewType = sliderView.type;
     __weak typeof(self)weakSelf = self;
     [_playerView configPlayerPoint:sliderView.currentSliderProgress completionHandler:^(BOOL finished) {
@@ -193,14 +189,12 @@ bufferProgressChanged:(CGFloat)progress
         if (!strongSelf) {
             return;
         }
-        NSLog(@"finished status :%d, sliderProgress = %f", finished, sliderView.currentSliderProgress);
     }];
 }
 
 - (void)playerSliderViewValueChanged:(DOGPlayerSliderView *)sliderView
                             progress:(CGFloat)progress {
     
-    NSLog(@"change");
     _sliderViewType = sliderView.type;
     _controlView.dunkerView.currentPlayProgress = progress;
 }

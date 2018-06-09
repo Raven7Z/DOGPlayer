@@ -58,6 +58,10 @@ static NSString *const kStatus = @"status";
     _playerLayer.frame = self.bounds;
 }
 
+- (void)dealloc {
+    [self dogplayer_RemovePlayerItemKVO];
+}
+
 #pragma mark - DOGPlayerProtocol
 - (void)play {
     switch (_status) {
@@ -94,6 +98,10 @@ static NSString *const kStatus = @"status";
             break;
     }
     [_player pause];
+}
+
+- (void)stop {
+    [_player stop];
 }
 
 #pragma mark - DOGPlayerViewProtocol
@@ -154,20 +162,20 @@ static NSString *const kStatus = @"status";
     if (object == _player.currentItem) {
         if ([keyPath isEqualToString:kStatus]) {
             AVPlayerStatus status = [[change objectForKey:@"new"] intValue];
-            [self dealStatus:status];
+            [self dogplayer_DealStatus:status];
         } else if ([keyPath isEqualToString:kLoadedTimeRanges]) {
-            [self dealLoadedTimeRanges];
+            [self dogplayer_DealLoadedTimeRanges];
         } else if ([keyPath isEqualToString:kPlaybackBufferEmpty]) {
-            [self dealPlaybackBufferEmpty];
+            [self dogplayer_DealPlaybackBufferEmpty];
         } else if ([keyPath isEqualToString:kPlaybackLikelyToKeepUp]) {
-            [self dealPlaybackLikelyToKeepUp];
+            [self dogplayer_DealPlaybackLikelyToKeepUp];
         }
     }
 }
 
 #pragma mark - privater method
 
-- (void)dealStatus:(AVPlayerStatus)status {
+- (void)dogplayer_DealStatus:(AVPlayerStatus)status {
     switch (status) {
         case AVPlayerStatusReadyToPlay: {
             self.status = DOGPlayerViewStatusReadyToPlay;
@@ -186,7 +194,7 @@ static NSString *const kStatus = @"status";
 /**
  calcuate video buffer progress
  */
-- (void)dealLoadedTimeRanges {
+- (void)dogplayer_DealLoadedTimeRanges {
     NSArray *loadedTimeRanges = [_player.currentItem loadedTimeRanges];
     CMTimeRange timeRange = [loadedTimeRanges.firstObject CMTimeRangeValue];
     float startSeconds = CMTimeGetSeconds(timeRange.start);
@@ -201,7 +209,7 @@ static NSString *const kStatus = @"status";
     }
 }
 
-- (void)dealPlaybackBufferEmpty {
+- (void)dogplayer_DealPlaybackBufferEmpty {
     if (_playerItem.playbackBufferEmpty) {
         self.status = DOGPlayerViewStatusBuffering;
 
@@ -225,15 +233,25 @@ static NSString *const kStatus = @"status";
             [strongSelf.player play];
             strongSelf.buffering = NO;
             if (!strongSelf.player.currentItem.isPlaybackLikelyToKeepUp) {
-                [strongSelf dealPlaybackBufferEmpty];
+                [strongSelf dogplayer_DealPlaybackBufferEmpty];
             }
         });
     }
 }
 
-- (void)dealPlaybackLikelyToKeepUp {
+- (void)dogplayer_DealPlaybackLikelyToKeepUp {
     if (_player.currentItem.isPlaybackLikelyToKeepUp && _status == DOGPlayerViewStatusBuffering) {
         self.status = DOGPlayerViewStatusPlaying;
+    }
+}
+
+- (void)dogplayer_RemovePlayerItemKVO {
+    if (_playerItem != nil) {
+        [_playerItem removeObserver:self forKeyPath:kStatus];
+        [_playerItem removeObserver:self forKeyPath:kLoadedTimeRanges];
+        [_playerItem removeObserver:self forKeyPath:kPlaybackBufferEmpty];
+        [_playerItem removeObserver:self forKeyPath:kPlaybackLikelyToKeepUp];
+        _playerItem = nil;
     }
 }
 
@@ -248,13 +266,7 @@ static NSString *const kStatus = @"status";
 
 - (void)setPlayerItem:(AVPlayerItem *)playerItem {
     
-    if (_playerItem != nil) {
-        [_playerItem removeObserver:self forKeyPath:kStatus];
-        [_playerItem removeObserver:self forKeyPath:kLoadedTimeRanges];
-        [_playerItem removeObserver:self forKeyPath:kPlaybackBufferEmpty];
-        [_playerItem removeObserver:self forKeyPath:kPlaybackLikelyToKeepUp];
-        _playerItem = nil;
-    }
+    [self dogplayer_RemovePlayerItemKVO];
     
     _playerItem = playerItem;
     

@@ -25,4 +25,9 @@ DOGPlayerWidgetProtocol
  */
 - (void)startPlay:(DOGPlayerItem *)item;
 
+/**
+ end play
+ */
+- (void)endPlay;
+
 @end

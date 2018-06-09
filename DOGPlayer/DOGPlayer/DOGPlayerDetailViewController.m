@@ -31,6 +31,11 @@
     [self.playerWidget startPlay:item];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [_playerWidget endPlay];
+}
+
 #pragma mark - property
 - (DOGPlayerWidget *)playerWidget {
     if (_playerWidget == nil) {
