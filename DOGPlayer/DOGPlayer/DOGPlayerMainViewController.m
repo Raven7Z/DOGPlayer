@@ -36,6 +36,7 @@
         _pushVideoButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _pushVideoButton.backgroundColor = [UIColor greenColor];
         _pushVideoButton.frame = CGRectMake(100, 100, 100, 40);
+        [_pushVideoButton setTitle:@"视频" forState:UIControlStateNormal];
         [_pushVideoButton addTarget:self action:@selector(pushVideoButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _pushVideoButton;

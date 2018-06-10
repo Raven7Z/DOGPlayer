@@ -13,6 +13,8 @@
 #import "UIView+DOG.h"
 #import "UIColor+DOG.h"
 
+#import "DOGPlayerSliderView.h"
+
 static const NSInteger kDunkerProgressViewHeight = 2;
 
 static const NSInteger kCurrentTimeLabelLeftMargin = 17;
@@ -23,6 +25,9 @@ static const NSInteger kFullScreenButtonWidth = 16.5;
 static const NSInteger kSliderViewHeight = 20;
 
 @interface DOGPlayerDunkerView ()
+<
+DOGPlayerSliderViewProtocol
+>
 
 @property (nonatomic, strong) DOGPlayerDunkerProgressView *dunkerProgressView;
 @property (nonatomic, strong) DOGPlayerSliderView *sliderView;
@@ -87,7 +92,29 @@ static const NSInteger kSliderViewHeight = 20;
 
 #pragma mark - target
 - (void)fullScreenButtonClickEvent:(UIButton *)sender {
-    NSLog(@"full screen button");
+    if (_delegate != nil && [_delegate conformsToProtocol:@protocol(DOGPlayerDunkerViewProtocol)] && [_delegate respondsToSelector:@selector(dunkerViewFullButtonClicked)]) {
+        [_delegate dunkerViewFullButtonClicked];
+    }
+}
+
+#pragma mark - delegate
+#pragma mark - DOGPlayerSliderViewDelegate
+- (void)playerSliderViewBegin:(DOGPlayerSliderView *)sliderView {
+    if (_delegate != nil && [_delegate conformsToProtocol:@protocol(DOGPlayerDunkerViewProtocol)] && [_delegate respondsToSelector:@selector(dunkerView:sliderViewBegin:)]) {
+        [_delegate dunkerView:self sliderViewBegin:sliderView];
+    }
+}
+
+- (void)playerSliderViewCancle:(DOGPlayerSliderView *)sliderView {
+    if (_delegate != nil && [_delegate conformsToProtocol:@protocol(DOGPlayerDunkerViewProtocol)] && [_delegate respondsToSelector:@selector(dunkerView:sliderViewCancle:)]) {
+        [_delegate dunkerView:self sliderViewCancle:sliderView];
+    }
+}
+
+- (void)playerSliderViewValueChanged:(DOGPlayerSliderView *)sliderView progress:(CGFloat)progress {
+    if (_delegate != nil && [_delegate conformsToProtocol:@protocol(DOGPlayerDunkerViewProtocol)] && [_delegate respondsToSelector:@selector(dunkerView:sliderViewValueChanged:progress:)]) {
+        [_delegate dunkerView:self sliderViewValueChanged:sliderView progress:progress];
+    }
 }
 
 #pragma mark - privater method
@@ -149,6 +176,7 @@ static const NSInteger kSliderViewHeight = 20;
     
     if (_sliderView == nil) {
         _sliderView = [[DOGPlayerSliderView alloc] initWithFrame:CGRectMake(x, y, width, height)];
+        _sliderView.delegate = self;
         _sliderView.dog_CenterY = _currentTimeLabel.dog_CenterY;
     }
     return _sliderView;

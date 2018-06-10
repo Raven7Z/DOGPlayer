@@ -8,14 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+#import "DOGPlayerDunkerViewProtocol.h"
 #import "DOGPlayerDunkerProgressView.h"
-#import "DOGPlayerSliderView.h"
 
 @interface DOGPlayerDunkerView : UIView
+<
+DOGPlayerDunkerViewProtocol
+>
+
+@property (nonatomic, weak) id <DOGPlayerDunkerViewProtocol> delegate;
 
 @property (nonatomic, readonly) DOGPlayerDunkerProgressView *dunkerProgressView;
-
-@property (nonatomic, readonly) DOGPlayerSliderView *sliderView;
 
 /**
  current play time

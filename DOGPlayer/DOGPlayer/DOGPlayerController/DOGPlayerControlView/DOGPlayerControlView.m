@@ -11,6 +11,7 @@
 #import "UIView+DOG.h"
 
 #import "DOGPlayerPlayButton.h"
+#import "DOGPlayerDunkerViewProtocol.h"
 
 static const NSInteger kDunkerViewHeight = 36;
 static const CGFloat kPlayButtonWidth = 61.5;
@@ -18,7 +19,7 @@ static const CGFloat kPlayButtonHeight = 61.5;
 
 @interface DOGPlayerControlView ()
 <
-DOGPlayerSliderViewDelegate
+DOGPlayerDunkerViewProtocol
 >
 
 @property (nonatomic, strong) DOGPlayerDunkerView *dunkerView;
@@ -27,6 +28,11 @@ DOGPlayerSliderViewDelegate
  video play or stop control button
  */
 @property (nonatomic, strong) DOGPlayerPlayButton *playButton;
+
+/**
+ controlview once touch can show or hidden controlview
+ */
+@property (nonatomic, strong) UITapGestureRecognizer *tapOnceGesture;
 
 @end
 
@@ -38,6 +44,7 @@ DOGPlayerSliderViewDelegate
     if (self) {
         [self addSubview:self.dunkerView];
         [self addSubview:self.playButton];
+        [self addGestureRecognizer:self.tapOnceGesture];
     }
     return self;
 }
@@ -49,31 +56,47 @@ DOGPlayerSliderViewDelegate
     _playButton.center = self.center;
 }
 
-#pragma mark - DOGPlayerSliderViewDelegate
-- (void)playerSliderViewBegin:(DOGPlayerSliderView *)sliderView {
-    if (_delegate != nil && [_delegate conformsToProtocol:@protocol(DOGPlayerSliderViewDelegate)] && [_delegate respondsToSelector:@selector(playerSliderViewBegin:)]) {
-        [_delegate playerSliderViewBegin:sliderView];
+#pragma mark - DOGPlayerDunkerViewProtocol
+- (void)dunkerViewFullButtonClicked {
+    if (_delegate != nil && [_delegate conformsToProtocol:@protocol(DOGPlayerControlViewProtocol)] && [_delegate respondsToSelector:@selector(playerControlViewFullButtonAction)]) {
+        [_delegate playerControlViewFullButtonAction];
     }
 }
 
-- (void)playerSliderViewCancle:(DOGPlayerSliderView *)sliderView {
-    if (_delegate != nil && [_delegate conformsToProtocol:@protocol(DOGPlayerSliderViewDelegate)] && [_delegate respondsToSelector:@selector(playerSliderViewCancle:)]) {
-        [_delegate playerSliderViewCancle:sliderView];
+- (void)dunkerView:(DOGPlayerDunkerView *)dunkerView sliderViewBegin:(DOGPlayerSliderView *)sliderView {
+    if (_delegate != nil && [_delegate conformsToProtocol:@protocol(DOGPlayerDunkerViewProtocol)] && [_delegate respondsToSelector:@selector(dunkerView:sliderViewBegin:)]) {
+        [_delegate dunkerView:dunkerView sliderViewBegin:sliderView];
     }
 }
 
-- (void)playerSliderViewValueChanged:(DOGPlayerSliderView *)sliderView progress:(CGFloat)progress {
-    if (_delegate != nil && [_delegate conformsToProtocol:@protocol(DOGPlayerSliderViewDelegate)] && [_delegate respondsToSelector:@selector(playerSliderViewValueChanged:progress:)]) {
-        [_delegate playerSliderViewValueChanged:sliderView progress:progress];
+- (void)dunkerView:(DOGPlayerDunkerView *)dunkerView sliderViewCancle:(DOGPlayerSliderView *)sliderView {
+    if (_delegate != nil && [_delegate conformsToProtocol:@protocol(DOGPlayerDunkerViewProtocol)] && [_delegate respondsToSelector:@selector(dunkerView:sliderViewCancle:)]) {
+        [_delegate dunkerView:dunkerView sliderViewCancle:sliderView];
     }
 }
 
-#pragma mark - target
+- (void)dunkerView:(DOGPlayerDunkerView *)dunkerView sliderViewValueChanged:(DOGPlayerSliderView *)sliderView progress:(CGFloat)progress {
+    if (_delegate != nil && [_delegate conformsToProtocol:@protocol(DOGPlayerDunkerViewProtocol)] && [_delegate respondsToSelector:@selector(dunkerView:sliderViewValueChanged:progress:)]) {
+        [_delegate dunkerView:dunkerView sliderViewValueChanged:sliderView progress:progress];
+    }
+}
+
+#pragma mark - action
 - (void)onPlayButtonSelected:(DOGPlayerPlayButton *)sender {
     sender.selected = !sender.selected;
     BOOL play = sender.selected;
-    if (_controlViewDelegate != nil && [_controlViewDelegate conformsToProtocol:@protocol(DOGPlayerControlViewProtocol)] && [_controlViewDelegate respondsToSelector:@selector(playerControlView:videoPlay:)]) {
-        [_controlViewDelegate playerControlView:self videoPlay:!play];
+    if (_delegate != nil && [_delegate conformsToProtocol:@protocol(DOGPlayerControlViewProtocol)] && [_delegate respondsToSelector:@selector(playerControlView:videoPlay:)]) {
+        [_delegate playerControlView:self videoPlay:!play];
+    }
+}
+
+- (void)onTapOnceControllView:(UITapGestureRecognizer *)gesture {
+    _dunkerView.hidden = !_dunkerView.isHidden;
+    _playButton.hidden = !_playButton.isHidden;
+    
+    BOOL hidden = _dunkerView.isHidden;
+    if (_delegate != nil && [_delegate conformsToProtocol:@protocol(DOGPlayerControlViewProtocol)] && [_delegate respondsToSelector:@selector(playerControlView:hidden:)]) {
+        [_delegate playerControlView:self hidden:hidden];
     }
 }
 
@@ -83,7 +106,7 @@ DOGPlayerSliderViewDelegate
     
     if (_dunkerView == nil) {
         _dunkerView = [[DOGPlayerDunkerView alloc] initWithFrame:CGRectMake(0, y, self.dog_Width, kDunkerViewHeight)];
-        _dunkerView.sliderView.delegate = self;
+        _dunkerView.delegate = self;
     }
     return _dunkerView;
 }
@@ -96,6 +119,14 @@ DOGPlayerSliderViewDelegate
         [_playButton addTarget:self action:@selector(onPlayButtonSelected:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _playButton;
+}
+
+- (UITapGestureRecognizer *)tapOnceGesture {
+    if (_tapOnceGesture == nil) {
+        _tapOnceGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapOnceControllView:)];
+        _tapOnceGesture.numberOfTouchesRequired = 1;
+    }
+    return _tapOnceGesture;
 }
 
 @end

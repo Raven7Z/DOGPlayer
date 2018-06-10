@@ -8,10 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+#import "DOGPlayerDunkerViewProtocol.h"
 @class DOGPlayerControlView;
 
-@protocol DOGPlayerControlViewProtocol <NSObject>
+@protocol DOGPlayerControlViewProtocol <DOGPlayerDunkerViewProtocol>
 
+@optional
 /**
  play button control video play or stop
 
@@ -21,33 +23,17 @@
 - (void)playerControlView:(DOGPlayerControlView *)controlView
                 videoPlay:(BOOL)play;
 
-@end
-
-@class DOGPlayerSliderView;
-
-@protocol DOGPlayerSliderViewDelegate <NSObject>
+/**
+ controlview hidden
+ @param controlView DOGPlayerControlView
+ @param hidden YES / hidden
+ */
+- (void)playerControlView:(DOGPlayerControlView *)controlView
+                   hidden:(BOOL)hidden;
 
 /**
- slider change progress value
- 
- @param sliderView DOGPlayerSliderView
- @param progress value
+ controlview fullbutton selected
  */
-- (void)playerSliderViewValueChanged:(DOGPlayerSliderView *)sliderView
-                            progress:(CGFloat)progress;
-
-/**
- slider Begin drag
- 
- @param sliderView DOGPlayerSliderView
- */
-- (void)playerSliderViewBegin:(DOGPlayerSliderView *)sliderView;
-
-/**
- slider cancle
- 
- @param sliderView DOGPlayerSliderView
- */
-- (void)playerSliderViewCancle:(DOGPlayerSliderView *)sliderView;
+- (void)playerControlViewFullButtonAction;
 
 @end

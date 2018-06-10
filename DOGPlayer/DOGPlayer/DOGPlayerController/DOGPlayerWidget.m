@@ -12,6 +12,7 @@
 #import "DOGPlayerView.h"
 #import "DOGPlayerControlView.h"
 #import "DOGPlayerLoadingView.h"
+#import "DOGPlayerSliderView.h"
 
 #import "UIView+DOG.h"
 
@@ -23,7 +24,7 @@ static const CGFloat kLoadingDuration = 0.5;
 @interface DOGPlayerWidget ()
 <
 DOGPlayerViewDelegate
-,DOGPlayerSliderViewDelegate
+,DOGPlayerSliderViewProtocol
 ,DOGPlayerControlViewProtocol
 >
 
@@ -171,14 +172,20 @@ bufferProgressChanged:(CGFloat)progress
     }
 }
 
-#pragma mark - DOGPlayerSliderViewDelegate
-- (void)playerSliderViewBegin:(DOGPlayerSliderView *)sliderView {
+- (void)playerControlView:(DOGPlayerControlView *)controlView hidden:(BOOL)hidden {
     
+}
+
+- (void)playerControlViewFullButtonAction {
+    
+}
+
+#pragma mark - DOGPlayerControlViewProtocol / DOGPlayerDunkerViewProtocol
+- (void)dunkerView:(DOGPlayerDunkerView *)dunkerView sliderViewBegin:(DOGPlayerSliderView *)sliderView {
     _sliderViewType = sliderView.type;
 }
 
-- (void)playerSliderViewCancle:(DOGPlayerSliderView *)sliderView {
-    
+- (void)dunkerView:(DOGPlayerDunkerView *)dunkerView sliderViewCancle:(DOGPlayerSliderView *)sliderView {
     _sliderViewType = sliderView.type;
     __weak typeof(self)weakSelf = self;
     [_playerView configPlayerPoint:sliderView.currentSliderProgress completionHandler:^(BOOL finished) {
@@ -192,9 +199,7 @@ bufferProgressChanged:(CGFloat)progress
     }];
 }
 
-- (void)playerSliderViewValueChanged:(DOGPlayerSliderView *)sliderView
-                            progress:(CGFloat)progress {
-    
+- (void)dunkerView:(DOGPlayerDunkerView *)dunkerView sliderViewValueChanged:(DOGPlayerSliderView *)sliderView progress:(CGFloat)progress {
     _sliderViewType = sliderView.type;
     _controlView.dunkerView.currentPlayProgress = progress;
 }
@@ -247,7 +252,6 @@ bufferProgressChanged:(CGFloat)progress
     if (_controlView == nil) {
         _controlView = [[DOGPlayerControlView alloc] initWithFrame:self.bounds];
         _controlView.delegate = self;
-        _controlView.controlViewDelegate = self;
     }
     return _controlView;
 }

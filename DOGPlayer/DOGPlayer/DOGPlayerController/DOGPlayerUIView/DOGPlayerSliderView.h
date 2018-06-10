@@ -12,7 +12,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "DOGPlayerControlViewProtocol.h"
+#import "DOGPlayerSliderViewProtocol.h"
 
 typedef NS_ENUM(NSInteger, DOGPlayerSliderViewType) {
     DOGPlayerSliderViewInitType,
@@ -23,7 +23,7 @@ typedef NS_ENUM(NSInteger, DOGPlayerSliderViewType) {
 
 @interface DOGPlayerSliderView : UIView
 
-@property (nonatomic, weak) id <DOGPlayerSliderViewDelegate> delegate;
+@property (nonatomic, weak) id <DOGPlayerSliderViewProtocol> delegate;
 
 /**
  current play progress value

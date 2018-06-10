@@ -106,6 +106,8 @@
 		9B92441B2015D4DA009F6F65 /* DOGPlayerDunkerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DOGPlayerDunkerView.m; sourceTree = "<group>"; };
 		A50DF43620255E2C0049A0C0 /* UIControl+DOG.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIControl+DOG.h"; sourceTree = "<group>"; };
 		A50DF43720255E2C0049A0C0 /* UIControl+DOG.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIControl+DOG.m"; sourceTree = "<group>"; };
+		A51DDF2020CCAE9C004DB4CA /* DOGPlayerDunkerViewProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DOGPlayerDunkerViewProtocol.h; sourceTree = "<group>"; };
+		A54F918A20CD21F200EA3D9C /* DOGPlayerSliderViewProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DOGPlayerSliderViewProtocol.h; sourceTree = "<group>"; };
 		A5805FC020CBC83D007C6EF0 /* DOGPlayerOtherViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DOGPlayerOtherViewController.h; sourceTree = "<group>"; };
 		A5805FC120CBC83D007C6EF0 /* DOGPlayerOtherViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DOGPlayerOtherViewController.m; sourceTree = "<group>"; };
 		A5805FC420CBCBF9007C6EF0 /* DOGPlayerDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DOGPlayerDetailViewController.h; sourceTree = "<group>"; };
@@ -300,10 +302,12 @@
 		3D26D93B20134902003CF82B /* DOGPlayerUIView */ = {
 			isa = PBXGroup;
 			children = (
+				A51DDF2020CCAE9C004DB4CA /* DOGPlayerDunkerViewProtocol.h */,
 				9B92441A2015D4DA009F6F65 /* DOGPlayerDunkerView.h */,
 				9B92441B2015D4DA009F6F65 /* DOGPlayerDunkerView.m */,
 				257CBA9220160D7000AA75A5 /* DOGPlayerDunkerProgressView.h */,
 				257CBA9320160D7000AA75A5 /* DOGPlayerDunkerProgressView.m */,
+				A54F918A20CD21F200EA3D9C /* DOGPlayerSliderViewProtocol.h */,
 				252E9A0220185A6500185692 /* DOGPlayerSliderView.h */,
 				252E9A0320185A6500185692 /* DOGPlayerSliderView.m */,
 				A5F618A520327355003CADE2 /* DOGPlayerDisplayView */,
